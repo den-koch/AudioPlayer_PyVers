@@ -9,23 +9,14 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>506</width>
+    <width>544</width>
     <height>710</height>
    </rect>
   </property>
-  <property name="windowTitle">
-   <string>MainWindow</string>
-  </property>
   <property name="styleSheet">
-   <string notr="true">background-color: qlineargradient(spread:pad, x1:0.517, y1:1, x2:0.493, y2:0, stop:0 rgba(49, 49, 49, 207), stop:1 rgba(72, 72, 72, 255))</string>
+   <string notr="true">background-color: qlineargradient(spread:pad, x1:0.517, y1:1, x2:0.493, y2:0, stop:0 rgba(49, 49, 49, 207), stop:1 rgba(72, 72, 72, 255));</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <property name="sizePolicy">
-    <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-     <horstretch>0</horstretch>
-     <verstretch>0</verstretch>
-    </sizepolicy>
-   </property>
    <property name="styleSheet">
     <string notr="true"/>
    </property>
@@ -74,7 +65,7 @@ padding: 2px;
          </property>
          <item row="0" column="0" rowspan="3" colspan="2">
           <layout class="QGridLayout" name="gridLayout_label">
-           <property name="spacing">
+           <property name="leftMargin">
             <number>0</number>
            </property>
            <item row="0" column="0" alignment="Qt::AlignHCenter">
@@ -90,21 +81,21 @@ padding: 2px;
              </property>
              <property name="maximumSize">
               <size>
-               <width>195</width>
-               <height>190</height>
+               <width>190</width>
+               <height>185</height>
               </size>
              </property>
              <property name="styleSheet">
               <string notr="true">background-color: 0 ;
 border: 2px solid rgb(100, 100, 100);
 border-radius: 5%;
-padding: 2px;</string>
+padding: 10px;</string>
              </property>
              <property name="text">
               <string/>
              </property>
              <property name="pixmap">
-              <pixmap>../AVA-removebg-preview.png</pixmap>
+              <pixmap>pictures/AVA-removebg-preview.png</pixmap>
              </property>
              <property name="scaledContents">
               <bool>true</bool>
@@ -113,25 +104,9 @@ padding: 2px;</string>
               <set>Qt::AlignCenter</set>
              </property>
              <property name="margin">
-              <number>10</number>
+              <number>0</number>
              </property>
             </widget>
-           </item>
-           <item row="0" column="1">
-            <spacer name="horizontalSpacer_9">
-             <property name="orientation">
-              <enum>Qt::Horizontal</enum>
-             </property>
-             <property name="sizeType">
-              <enum>QSizePolicy::Fixed</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>5</width>
-               <height>15</height>
-              </size>
-             </property>
-            </spacer>
            </item>
           </layout>
          </item>
@@ -193,7 +168,7 @@ padding: 2px;</string>
             </widget>
            </item>
            <item row="0" column="0" alignment="Qt::AlignHCenter">
-            <widget class="QSlider" name="horizontalSlider_Volume">
+            <widget class="QSlider" name="slider_Volume">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
                <horstretch>0</horstretch>
@@ -240,7 +215,7 @@ QSlider::add-page:qlineargradient {
 }
 
 QSlider::sub-page:qlineargradient {
-	background: qradialgradient(spread:pad, cx:0.505, cy:0.522818, radius:1.044, fx:0.5, fy:0.523, stop:0.273632 rgba(255, 128, 0, 255), stop:1 rgba(102, 68, 0, 255));;
+	background: qradialgradient(spread:pad, cx:0.505, cy:0.522818, radius:1.044, fx:0.5, fy:0.523, stop:0.273632 rgba(255, 128, 0, 255), stop:1 rgba(102, 68, 0, 255));
 	border-top-right-radius: 0px;
 	border-bottom-right-radius: 0px;
 	border-top-left-radius: 5px;
@@ -258,7 +233,7 @@ QToolTip { color: rgb(180, 180, 180);
               <number>100</number>
              </property>
              <property name="singleStep">
-              <number>2</number>
+              <number>4</number>
              </property>
              <property name="pageStep">
               <number>5</number>
@@ -268,12 +243,6 @@ QToolTip { color: rgb(180, 180, 180);
              </property>
              <property name="orientation">
               <enum>Qt::Horizontal</enum>
-             </property>
-             <property name="tickPosition">
-              <enum>QSlider::NoTicks</enum>
-             </property>
-             <property name="tickInterval">
-              <number>10</number>
              </property>
             </widget>
            </item>
@@ -287,38 +256,6 @@ QToolTip { color: rgb(180, 180, 180);
            <property name="spacing">
             <number>0</number>
            </property>
-           <item row="1" column="8">
-            <spacer name="horizontalSpacer_6">
-             <property name="orientation">
-              <enum>Qt::Horizontal</enum>
-             </property>
-             <property name="sizeType">
-              <enum>QSizePolicy::Fixed</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>5</width>
-               <height>20</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
-           <item row="0" column="0" colspan="8">
-            <spacer name="verticalSpacer">
-             <property name="orientation">
-              <enum>Qt::Vertical</enum>
-             </property>
-             <property name="sizeType">
-              <enum>QSizePolicy::Fixed</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>20</width>
-               <height>10</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
            <item row="1" column="0" colspan="6">
             <widget class="QFrame" name="frame_but">
              <property name="sizePolicy">
@@ -344,7 +281,7 @@ border: 1px solid rgb(100, 100, 100);
              <property name="frameShadow">
               <enum>QFrame::Raised</enum>
              </property>
-             <layout class="QHBoxLayout" name="horizontalLayout" stretch="0,0,0,0,0,0,0,0,0,0,0,0,0,0">
+             <layout class="QHBoxLayout" name="horizontalLayout" stretch="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0">
               <property name="spacing">
                <number>2</number>
               </property>
@@ -405,7 +342,8 @@ border: 1px solid rgb(100, 100, 100);
 	border-style:solid;
 	border-color: rgb(255, 255, 255);
 	border-radius:18%;
-	background-color:qradialgradient(spread:pad, cx:0.505, cy:0.522818, radius:1.044, fx:0.5, fy:0.523, stop:0 rgba(255, 128, 0, 255), stop:0.746269 rgba(102, 68, 0, 255));
+
+	background-color: qradialgradient(spread:pad, cx:0.505, cy:0.522818, radius:1.044, fx:0.5, fy:0.523, stop:0.134328 rgba(255, 128, 0, 255), stop:0.751244 rgba(102, 68, 0, 255));
 }
 QPushButton:hover {
 	background-color:qradialgradient(spread:pad, cx:0.505, cy:0.522818, radius:1.044, fx:0.5, fy:0.523, stop:0.233831 rgba(255, 128, 0, 255), stop:0.751244 rgba(102, 68, 0, 255));
@@ -424,7 +362,7 @@ QToolTip { color: rgb(180, 180, 180);
                 </property>
                 <property name="icon">
                  <iconset>
-                  <normaloff>Play.png</normaloff>Play.png</iconset>
+                  <normaloff>pictures/play.png</normaloff>pictures/play.png</iconset>
                 </property>
                 <property name="iconSize">
                  <size>
@@ -479,7 +417,8 @@ QToolTip { color: rgb(180, 180, 180);
 	border-style:solid;
 	border-color: rgb(255, 255, 255);
 	border-radius:18%;
-	background-color:qradialgradient(spread:pad, cx:0.505, cy:0.522818, radius:1.044, fx:0.5, fy:0.523, stop:0 rgba(255, 128, 0, 255), stop:0.746269 rgba(102, 68, 0, 255));
+
+	background-color: qradialgradient(spread:pad, cx:0.505, cy:0.522818, radius:1.044, fx:0.5, fy:0.523, stop:0.134328 rgba(255, 128, 0, 255), stop:0.751244 rgba(102, 68, 0, 255));
 }
 QPushButton:hover {
 	background-color:qradialgradient(spread:pad, cx:0.505, cy:0.522818, radius:1.044, fx:0.5, fy:0.523, stop:0.233831 rgba(255, 128, 0, 255), stop:0.751244 rgba(102, 68, 0, 255));
@@ -498,7 +437,7 @@ QToolTip { color: rgb(180, 180, 180);
                 </property>
                 <property name="icon">
                  <iconset>
-                  <normaloff>pause.png</normaloff>pause.png</iconset>
+                  <normaloff>pictures/pause.png</normaloff>pictures/pause.png</iconset>
                 </property>
                 <property name="iconSize">
                  <size>
@@ -553,7 +492,8 @@ QToolTip { color: rgb(180, 180, 180);
 	border-style:solid;
 	border-color: rgb(255, 255, 255);
 	border-radius:18%;
-	background-color:qradialgradient(spread:pad, cx:0.505, cy:0.522818, radius:1.044, fx:0.5, fy:0.523, stop:0 rgba(255, 128, 0, 255), stop:0.746269 rgba(102, 68, 0, 255));
+
+	background-color: qradialgradient(spread:pad, cx:0.505, cy:0.522818, radius:1.044, fx:0.5, fy:0.523, stop:0.134328 rgba(255, 128, 0, 255), stop:0.751244 rgba(102, 68, 0, 255));
 }
 QPushButton:hover {
 	background-color:qradialgradient(spread:pad, cx:0.505, cy:0.522818, radius:1.044, fx:0.5, fy:0.523, stop:0.233831 rgba(255, 128, 0, 255), stop:0.751244 rgba(102, 68, 0, 255));
@@ -565,14 +505,15 @@ QPushButton:pressed {
 
 QToolTip { color: rgb(180, 180, 180); 
 	background-color: qlineargradient(spread:pad, x1:0.517, y1:1, x2:0.493, y2:0, stop:0 rgba(49, 49, 49, 207), stop:1 rgba(72, 72, 72, 255)); 
-	border: 0px; }</string>
+	border: 0px; }
+</string>
                 </property>
                 <property name="text">
                  <string/>
                 </property>
                 <property name="icon">
                  <iconset>
-                  <normaloff>stop.png</normaloff>stop.png</iconset>
+                  <normaloff>pictures/stop.png</normaloff>pictures/stop.png</iconset>
                 </property>
                 <property name="iconSize">
                  <size>
@@ -627,7 +568,8 @@ QToolTip { color: rgb(180, 180, 180);
 	border-style:solid;
 	border-color: rgb(255, 255, 255);
 	border-radius:18%;
-	background-color:qradialgradient(spread:pad, cx:0.505, cy:0.522818, radius:1.044, fx:0.5, fy:0.523, stop:0 rgba(255, 128, 0, 255), stop:0.746269 rgba(102, 68, 0, 255));
+
+	background-color: qradialgradient(spread:pad, cx:0.505, cy:0.522818, radius:1.044, fx:0.5, fy:0.523, stop:0.134328 rgba(255, 128, 0, 255), stop:0.751244 rgba(102, 68, 0, 255));
 }
 QPushButton:hover {
 	background-color:qradialgradient(spread:pad, cx:0.505, cy:0.522818, radius:1.044, fx:0.5, fy:0.523, stop:0.233831 rgba(255, 128, 0, 255), stop:0.751244 rgba(102, 68, 0, 255));
@@ -646,7 +588,7 @@ QToolTip { color: rgb(180, 180, 180);
                 </property>
                 <property name="icon">
                  <iconset>
-                  <normaloff>prev.png</normaloff>prev.png</iconset>
+                  <normaloff>pictures/prev.png</normaloff>pictures/prev.png</iconset>
                 </property>
                 <property name="iconSize">
                  <size>
@@ -701,7 +643,8 @@ QToolTip { color: rgb(180, 180, 180);
 	border-style:solid;
 	border-color: rgb(255, 255, 255);
 	border-radius:18%;
-	background-color:qradialgradient(spread:pad, cx:0.505, cy:0.522818, radius:1.044, fx:0.5, fy:0.523, stop:0 rgba(255, 128, 0, 255), stop:0.746269 rgba(102, 68, 0, 255));
+
+	background-color: qradialgradient(spread:pad, cx:0.505, cy:0.522818, radius:1.044, fx:0.5, fy:0.523, stop:0.134328 rgba(255, 128, 0, 255), stop:0.751244 rgba(102, 68, 0, 255));
 }
 QPushButton:hover {
 	background-color:qradialgradient(spread:pad, cx:0.505, cy:0.522818, radius:1.044, fx:0.5, fy:0.523, stop:0.233831 rgba(255, 128, 0, 255), stop:0.751244 rgba(102, 68, 0, 255));
@@ -720,7 +663,7 @@ QToolTip { color: rgb(180, 180, 180);
                 </property>
                 <property name="icon">
                  <iconset>
-                  <normaloff>next.png</normaloff>next.png</iconset>
+                  <normaloff>pictures/next.png</normaloff>pictures/next.png</iconset>
                 </property>
                 <property name="iconSize">
                  <size>
@@ -729,22 +672,6 @@ QToolTip { color: rgb(180, 180, 180);
                  </size>
                 </property>
                </widget>
-              </item>
-              <item>
-               <spacer name="horizontalSpacer_8">
-                <property name="orientation">
-                 <enum>Qt::Horizontal</enum>
-                </property>
-                <property name="sizeType">
-                 <enum>QSizePolicy::Maximum</enum>
-                </property>
-                <property name="sizeHint" stdset="0">
-                 <size>
-                  <width>2</width>
-                  <height>20</height>
-                 </size>
-                </property>
-               </spacer>
               </item>
               <item>
                <spacer name="horizontalSpacer_1">
@@ -791,7 +718,8 @@ QToolTip { color: rgb(180, 180, 180);
 	border-style:solid;
 	border-color: rgb(255, 255, 255);
 	border-radius:18%;
-	background-color:qradialgradient(spread:pad, cx:0.505, cy:0.522818, radius:1.044, fx:0.5, fy:0.523, stop:0 rgba(255, 128, 0, 255), stop:0.746269 rgba(102, 68, 0, 255));
+
+	background-color: qradialgradient(spread:pad, cx:0.505, cy:0.522818, radius:1.044, fx:0.5, fy:0.523, stop:0.134328 rgba(255, 128, 0, 255), stop:0.751244 rgba(102, 68, 0, 255));
 }
 QPushButton:hover {
 	background-color:qradialgradient(spread:pad, cx:0.505, cy:0.522818, radius:1.044, fx:0.5, fy:0.523, stop:0.233831 rgba(255, 128, 0, 255), stop:0.751244 rgba(102, 68, 0, 255));
@@ -807,12 +735,81 @@ QToolTip { color: rgb(180, 180, 180);
                 </property>
                 <property name="icon">
                  <iconset>
-                  <normaloff>files.png</normaloff>files.png</iconset>
+                  <normaloff>pictures/files.png</normaloff>pictures/files.png</iconset>
                 </property>
                 <property name="iconSize">
                  <size>
                   <width>22</width>
                   <height>22</height>
+                 </size>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <spacer name="horizontalSpacer">
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeType">
+                 <enum>QSizePolicy::Maximum</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>5</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+              <item>
+               <widget class="QPushButton" name="pushButton_Delete_file">
+                <property name="minimumSize">
+                 <size>
+                  <width>36</width>
+                  <height>36</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>36</width>
+                  <height>36</height>
+                 </size>
+                </property>
+                <property name="toolTip">
+                 <string>Delete file(s)</string>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">QPushButton {
+	border-width: 1px;
+	border-style:solid;
+	border-color: rgb(255, 255, 255);
+	border-radius:18%;
+
+	background-color: qradialgradient(spread:pad, cx:0.505, cy:0.522818, radius:1.044, fx:0.5, fy:0.523, stop:0.134328 rgba(255, 128, 0, 255), stop:0.751244 rgba(102, 68, 0, 255));
+}
+QPushButton:hover {
+	background-color:qradialgradient(spread:pad, cx:0.505, cy:0.522818, radius:1.044, fx:0.5, fy:0.523, stop:0.233831 rgba(255, 128, 0, 255), stop:0.751244 rgba(102, 68, 0, 255));
+}
+QPushButton:pressed {
+	border-color:  rgb(100, 100, 100);
+	background-color:qradialgradient(spread:pad, cx:0.505, cy:0.522818, radius:1.044, fx:0.5, fy:0.523, stop:0 rgba(255, 128, 0, 255), stop:0.577114 rgba(102, 68, 0, 255));
+}
+
+QToolTip { color: rgb(180, 180, 180); 
+	background-color: qlineargradient(spread:pad, x1:0.517, y1:1, x2:0.493, y2:0, stop:0 rgba(49, 49, 49, 207), stop:1 rgba(72, 72, 72, 255)); 
+	border: 0px; }</string>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+                <property name="icon">
+                 <iconset>
+                  <normaloff>pictures/delete.png</normaloff>pictures/delete.png</iconset>
+                </property>
+                <property name="iconSize">
+                 <size>
+                  <width>30</width>
+                  <height>30</height>
                  </size>
                 </property>
                </widget>
@@ -835,6 +832,22 @@ QToolTip { color: rgb(180, 180, 180);
               </item>
              </layout>
             </widget>
+           </item>
+           <item row="0" column="0" colspan="8">
+            <spacer name="verticalSpacer">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeType">
+              <enum>QSizePolicy::Fixed</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>10</height>
+              </size>
+             </property>
+            </spacer>
            </item>
           </layout>
          </item>
@@ -860,13 +873,13 @@ QToolTip { color: rgb(180, 180, 180);
              <property name="minimumSize">
               <size>
                <width>148</width>
-               <height>40</height>
+               <height>35</height>
               </size>
              </property>
              <property name="maximumSize">
               <size>
                <width>148</width>
-               <height>40</height>
+               <height>35</height>
               </size>
              </property>
              <property name="styleSheet">
@@ -897,7 +910,7 @@ border-radius: 10%;
                <number>0</number>
               </property>
               <item alignment="Qt::AlignVCenter">
-               <widget class="QLabel" name="label_4">
+               <widget class="QLabel" name="label_Start">
                 <property name="sizePolicy">
                  <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
                   <horstretch>0</horstretch>
@@ -907,13 +920,13 @@ border-radius: 10%;
                 <property name="minimumSize">
                  <size>
                   <width>70</width>
-                  <height>30</height>
+                  <height>25</height>
                  </size>
                 </property>
                 <property name="maximumSize">
                  <size>
                   <width>70</width>
-                  <height>30</height>
+                  <height>25</height>
                  </size>
                 </property>
                 <property name="font">
@@ -936,8 +949,15 @@ color: rgb(180, 180, 180);
                 </property>
                </widget>
               </item>
+              <item>
+               <widget class="Line" name="line">
+                <property name="orientation">
+                 <enum>Qt::Vertical</enum>
+                </property>
+               </widget>
+              </item>
               <item alignment="Qt::AlignHCenter|Qt::AlignVCenter">
-               <widget class="QLabel" name="label_2">
+               <widget class="QLabel" name="label_End">
                 <property name="sizePolicy">
                  <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
                   <horstretch>0</horstretch>
@@ -947,13 +967,13 @@ color: rgb(180, 180, 180);
                 <property name="minimumSize">
                  <size>
                   <width>70</width>
-                  <height>30</height>
+                  <height>25</height>
                  </size>
                 </property>
                 <property name="maximumSize">
                  <size>
                   <width>70</width>
-                  <height>30</height>
+                  <height>25</height>
                  </size>
                 </property>
                 <property name="font">
@@ -987,7 +1007,7 @@ color: rgb(180, 180, 180);
             <number>0</number>
            </property>
            <property name="topMargin">
-            <number>0</number>
+            <number>5</number>
            </property>
            <property name="rightMargin">
             <number>0</number>
@@ -999,7 +1019,7 @@ color: rgb(180, 180, 180);
             <number>0</number>
            </property>
            <item row="0" column="1">
-            <widget class="MyEqualizer" name="EqualizerWidget" native="true">
+            <widget class="QFrame" name="frame_2">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
                <horstretch>0</horstretch>
@@ -1008,23 +1028,57 @@ color: rgb(180, 180, 180);
              </property>
              <property name="minimumSize">
               <size>
-               <width>100</width>
-               <height>100</height>
+               <width>190</width>
+               <height>140</height>
               </size>
              </property>
              <property name="maximumSize">
               <size>
-               <width>200</width>
-               <height>150</height>
+               <width>190</width>
+               <height>140</height>
               </size>
              </property>
-             <property name="focusPolicy">
-              <enum>Qt::ClickFocus</enum>
-             </property>
              <property name="styleSheet">
-              <string notr="true">border: 2px solid rgb(100, 100, 100);
-border-radius: 5%;</string>
+              <string notr="true">padding:-5px;
+background-color: rgb(0, 0, 0);</string>
              </property>
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_2">
+              <property name="leftMargin">
+               <number>0</number>
+              </property>
+              <property name="topMargin">
+               <number>0</number>
+              </property>
+              <property name="rightMargin">
+               <number>0</number>
+              </property>
+              <property name="bottomMargin">
+               <number>0</number>
+              </property>
+              <item>
+               <widget class="MyEqualizer" name="EqualizerWidget" native="true">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="focusPolicy">
+                 <enum>Qt::ClickFocus</enum>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">border: 2px solid rgb(100, 100, 100);
+border-radius: 5%;</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
             </widget>
            </item>
           </layout>
@@ -1037,16 +1091,16 @@ border-radius: 5%;</string>
     <item>
      <layout class="QGridLayout" name="gridLayout_5">
       <property name="leftMargin">
-       <number>5</number>
+       <number>10</number>
       </property>
       <property name="rightMargin">
-       <number>5</number>
+       <number>10</number>
       </property>
       <property name="spacing">
        <number>0</number>
       </property>
       <item row="0" column="0">
-       <widget class="QSlider" name="horizontalSlider_duration">
+       <widget class="QSlider" name="slider_Duration">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
           <horstretch>0</horstretch>
@@ -1131,27 +1185,64 @@ QSlider::sub-page:qlineargradient {
           <verstretch>0</verstretch>
          </sizepolicy>
         </property>
+        <property name="font">
+         <font>
+          <family>MS Shell Dlg 2</family>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
         <property name="styleSheet">
          <string notr="true">QTreeView{border-radius:10%;
-border: 2px solid rgb(100, 100, 100);
+	border: 2px solid rgb(100, 100, 100);
+	color: rgb(180, 180, 180); 
+}
+QTreeView::item {
+	padding: 3px;
 }
 
-QTreeView::branch:has-children:!has-siblings:closed,
+QTreeView::item:selected {
+    border: 1px solid rgb(100, 100, 100);
+	color: rgb(180, 180, 180); 
+	padding:2px;
+}
+
+QTreeView::item:selected:active{
+	background: rgb(100, 100, 100);
+	padding:2px;
+}
+
+QTreeView::item:selected:!active {
+    background: rgb(100, 100, 100);
+	padding:2px;
+}
+
+QTreeView::item:closed:has-children:!has-siblings,
+QTreeView::item:closed:has-children:has-siblings,
+QTreeView::item:open:has-children:!has-siblings,
+QTreeView::item:open:has-children:has-siblings  {
+	border:2px solid qradialgradient(spread:pad, cx:0.505, cy:0.522818, radius:1.044, fx:0.5, fy:0.523, stop:0.273632 rgba(255, 128, 0, 255), stop:1 rgba(102, 68, 0, 255));
+	border-top:none;
+	border-left:none;
+	border-right: none;
+}
+
+QTreeView::branch:closed:has-children:!has-siblings,
 QTreeView::branch:closed:has-children:has-siblings {
         border-image: none;
-        image: url(plus.png);
+        image: url(pictures/plus2.0.png);
 }
 
 QTreeView::branch:open:has-children:!has-siblings,
 QTreeView::branch:open:has-children:has-siblings  {
         border-image: none;
-        image: url(minus.png);
+        image: url(pictures/minus3.0.png);
 }
 
 QScrollBar:vertical{
 background-color: 0;
 border-top-right-radius:10%;
 border-bottom-right-radius:10%;
+margin-left:10px;
 }
 QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical{
       border: none;
@@ -1168,6 +1259,12 @@ QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {
         <property name="horizontalScrollBarPolicy">
          <enum>Qt::ScrollBarAlwaysOff</enum>
         </property>
+        <property name="editTriggers">
+         <set>QAbstractItemView::NoEditTriggers</set>
+        </property>
+        <property name="headerHidden">
+         <bool>true</bool>
+        </property>
        </widget>
       </item>
      </layout>
@@ -1179,7 +1276,7 @@ QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>506</width>
+     <width>544</width>
      <height>26</height>
     </rect>
    </property>
@@ -1202,7 +1299,7 @@ QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {
   <customwidget>
    <class>MyEqualizer</class>
    <extends>QWidget</extends>
-   <header>equalizer</header>
+   <header>modules/equalizer</header>
    <container>1</container>
   </customwidget>
  </customwidgets>
