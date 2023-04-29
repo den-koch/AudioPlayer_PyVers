@@ -7,7 +7,8 @@ import sys
 
 from PyQt5 import QtGui
 from PyQt5 import uic
-from PyQt5.QtWidgets import QApplication, QMainWindow, QFileDialog
+from PyQt5.QtWidgets import QApplication, QMainWindow, QFileDialog, QMenu
+from modules import *
 
 
 # from tree_view import *
@@ -34,6 +35,18 @@ class MainWindow(QMainWindow):
         self.setWindowTitle("Audio Player PyVerse")
         self.setFixedWidth(self.geometry().width())
 
+        # Add Widgets / Widgets settings
+
+        self.tree_model = QtGui.QStandardItemModel()
+        self.root_node = self.tree_model.invisibleRootItem()
+        self.main_ui.treeView_Playlist.setModel(self.tree_model)
+
+        self.menu_open = QMenu()
+        self.menu_open.setStyleSheet(menu_style)
+        self.menu_open.addAction("Files")
+        self.menu_open.addAction("Folder")
+        self.main_ui.pushButton_Open_file.setMenu(self.menu_open)
+
         # Define Widgets signals
 
         self.main_ui.pushButton_Play.clicked.connect(self.play_track)
@@ -41,10 +54,8 @@ class MainWindow(QMainWindow):
         self.main_ui.pushButton_Stop.clicked.connect(self.stop_playing)
         self.main_ui.pushButton_Previous_track.clicked.connect(self.previous_track)
         self.main_ui.pushButton_Next_track.clicked.connect(self.next_track)
-        self.main_ui.pushButton_Open_file.clicked.connect(self.add_music)  # self.open_file
-        self.main_ui.pushButton_Open_file.clicked.connect(self.open_file)
         self.main_ui.pushButton_Delete_file.clicked.connect(self.delete_file)
-
+        self.menu_open.triggered.connect(self.open_file)
         self.main_ui.slider_Volume.valueChanged.connect(self.change_volume)
 
         self.main_ui.treeView_Playlist.doubleClicked.connect(self.get_track)
@@ -66,18 +77,41 @@ class MainWindow(QMainWindow):
     def next_track(self):
         pass
 
-    def open_file(self):
-        file_filter = "All supported (*.mp3 *.mp4 *.wav *.m4a *.flac *.wma)"
-        files, _ = QFileDialog.getOpenFileNames(self, caption="Open file...", directory=os.getcwd(),
-                                                filter=file_filter)  # options=QFileDialog.DontUseNativeDialog
-        if files:
+    def open_file(self, action: object):
+        print(action)
+        print('Action: ', action.text())
+
+        if action.text() == "Folder":
+            file_name = QFileDialog.getExistingDirectory(self, caption="Open folder...", directory=os.getcwd())
+            file_in_dir = os.listdir(file_name)
+
+            music_files=[]
+            for file in file_in_dir:
+                # print(file.rsplit('.')[0])
+                if file.endswith(file_filter_for_dir):
+                    music_files.append(file)
+            print(music_files)
+            # self.add_folder(file_name)
+
+        else:
+            files, _ = QFileDialog.getOpenFileNames(self, caption="Open file(-s)...", directory=os.getcwd(),
+                                                    filter=" ".join(file_filter_for_files))  # options=QFileDialog.DontUseNativeDialog
+
             for file in files:
-                print(file)
-                # self.add_music(os.path.split(file)[1], os.path.split(os.path.split(file)[0])[1])
+                file = file.split("/")
+                self.add_songs(file[-2], file[-1].rsplit('.')[0])
+
+    def add_songs(self, folder: str, name: str):
+        print(folder, name)
+        new_folder = QtGui.QStandardItem(folder)
+        new_name = QtGui.QStandardItem(name)
+        new_folder.appendRow(new_name)
+        self.root_node.appendRow(new_folder)
+
+    def add_folder(self, folder: str):
+        print(folder)
 
     def add_music(self):
-        tree_model = QtGui.QStandardItemModel()
-        root_node = tree_model.invisibleRootItem()
 
         america = QtGui.QStandardItem("Jr")
         abx = QtGui.QStandardItem("abx")
@@ -87,12 +121,24 @@ class MainWindow(QMainWindow):
         usa.appendRow(yes)
         hallo = QtGui.QStandardItem("hallo")
         usa.appendRow(hallo)
-        root_node.appendRow(america)
-        root_node.appendRow(usa)
-        self.main_ui.treeView_Playlist.setModel(tree_model)
+        self.root_node.appendRow(america)
+        self.root_node.appendRow(usa)
+
         # self.main_ui.treeView_Playlist.expandAll()
 
     def get_track(self, val):
+        # index = self.main_ui.treeView_Playlist.selectedIndexes()[0]
+        # crawler = index.model().itemFromIndex(index)
+        # print(crawler)
+        print(self.main_ui.treeView_Playlist.selectedIndexes(),
+              self.main_ui.treeView_Playlist.selectedIndexes()[0].data())
+        for ix in self.main_ui.treeView_Playlist.selectedIndexes():
+            text = ix.data()  # or ix.data()
+            print(text)
+            row_index = ix.row()
+            print(row_index)
+        # print(self.main_ui.treeView_Playlist.selectedItems())
+
         print("parent", val.parent().data())
         print("child", val.data())
 
