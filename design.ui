@@ -709,8 +709,11 @@ QToolTip { color: rgb(180, 180, 180);
                   <height>36</height>
                  </size>
                 </property>
+                <property name="contextMenuPolicy">
+                 <enum>Qt::ActionsContextMenu</enum>
+                </property>
                 <property name="toolTip">
-                 <string>Open file(s)</string>
+                 <string>Open ...</string>
                 </property>
                 <property name="styleSheet">
                  <string notr="true">QPushButton {
@@ -718,9 +721,10 @@ QToolTip { color: rgb(180, 180, 180);
 	border-style:solid;
 	border-color: rgb(255, 255, 255);
 	border-radius:18%;
-
 	background-color: qradialgradient(spread:pad, cx:0.505, cy:0.522818, radius:1.044, fx:0.5, fy:0.523, stop:0.134328 rgba(255, 128, 0, 255), stop:0.751244 rgba(102, 68, 0, 255));
 }
+QPushButton::menu-indicator { image: none; }
+
 QPushButton:hover {
 	background-color:qradialgradient(spread:pad, cx:0.505, cy:0.522818, radius:1.044, fx:0.5, fy:0.523, stop:0.233831 rgba(255, 128, 0, 255), stop:0.751244 rgba(102, 68, 0, 255));
 }
