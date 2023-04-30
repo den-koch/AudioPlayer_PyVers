@@ -713,7 +713,7 @@ QToolTip { color: rgb(180, 180, 180);
                  <enum>Qt::ActionsContextMenu</enum>
                 </property>
                 <property name="toolTip">
-                 <string>Open ...</string>
+                 <string>Add/Open ...</string>
                 </property>
                 <property name="styleSheet">
                  <string notr="true">QPushButton {
@@ -1182,7 +1182,7 @@ QSlider::sub-page:qlineargradient {
        <number>0</number>
       </property>
       <item row="0" column="0">
-       <widget class="QTreeView" name="treeView_Playlist">
+       <widget class="MyTreeView" name="treeView_Playlist">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
           <horstretch>0</horstretch>
@@ -1266,6 +1266,15 @@ QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {
         <property name="editTriggers">
          <set>QAbstractItemView::NoEditTriggers</set>
         </property>
+        <property name="tabKeyNavigation">
+         <bool>false</bool>
+        </property>
+        <property name="selectionMode">
+         <enum>QAbstractItemView::SingleSelection</enum>
+        </property>
+        <property name="selectionBehavior">
+         <enum>QAbstractItemView::SelectItems</enum>
+        </property>
         <property name="headerHidden">
          <bool>true</bool>
         </property>
@@ -1305,6 +1314,11 @@ QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {
    <extends>QWidget</extends>
    <header>modules/equalizer</header>
    <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>MyTreeView</class>
+   <extends>QTreeView</extends>
+   <header>modules/tree_view</header>
   </customwidget>
  </customwidgets>
  <resources/>
