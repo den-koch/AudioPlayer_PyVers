@@ -8,7 +8,7 @@ class MyTreeView(QTreeView):
 
     def mousePressEvent(self, event):
 
-        if event.button() == QtCore.Qt.RightButton:
+        if event.button() == QtCore.Qt.LeftButton:
             self.clearSelection()
         else:
             print("left click !")

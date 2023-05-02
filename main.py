@@ -1,7 +1,4 @@
-""" Hello world
-here it is
-here we go again
-"""
+""" Main App Class"""
 
 import os
 import sys
@@ -9,7 +6,7 @@ import json
 from PyQt5 import QtGui
 from PyQt5 import uic
 from PyQt5.QtCore import QUrl
-from PyQt5.QtWidgets import QApplication, QMainWindow, QFileDialog, QMenu
+from PyQt5.QtWidgets import QApplication, QMainWindow, QFileDialog, QMenu, QLabel
 from PyQt5.QtMultimedia import QMediaPlayer, QMediaPlaylist, QMediaContent
 
 from modules import *
@@ -37,8 +34,15 @@ class MainWindow(QMainWindow):
 
         # Add Widgets, Variables
 
+        self.status_label = QLabel()
+        self.track_label = QLabel()
         self.player = QMediaPlayer()
         self.url = QUrl()
+
+        self.menu_open = QMenu()
+        self.menu_open.addAction("New Playlist")
+        self.menu_open.addAction("Files")
+        self.menu_open.addAction("Folder")
 
         self.media_playlists = {}
         self.folder_playlist = {}
@@ -46,16 +50,16 @@ class MainWindow(QMainWindow):
 
         # Widgets settings
 
+        self.main_ui.statusBar.addPermanentWidget(self.status_label, 1)
+        self.main_ui.statusBar.addPermanentWidget(self.track_label, 2)
+        self.status_label.setText("Status: ...")
+
         self.tree_model = QtGui.QStandardItemModel()
         self.root_node = self.tree_model.invisibleRootItem()
         self.main_ui.treeView_Playlist.setModel(self.tree_model)
         self.main_ui.treeView_Playlist.expandAll()
 
-        self.menu_open = QMenu()
         self.menu_open.setStyleSheet(menu_style)
-        self.menu_open.addAction("New Playlist")
-        self.menu_open.addAction("Files")
-        self.menu_open.addAction("Folder")
         self.main_ui.pushButton_Open_file.setMenu(self.menu_open)
 
         # Define Widgets signals
@@ -74,19 +78,28 @@ class MainWindow(QMainWindow):
         # self.slider_Duration.
 
     def play_track(self):
+        self.player.play()
+        self.status_label.setText("Status: Playing")
+        # self.track_label.setText(f"Track: {list(self.media_playlists.keys())[0]}")
         self.main_ui.EqualizerWidget.set_timer.start()
 
     def pause_track(self):
+        self.player.pause()
+        self.status_label.setText("Status: Paused")
         self.main_ui.EqualizerWidget.set_timer.stop()
 
     def stop_playing(self):
-        pass
+        self.player.stop()
+        self.status_label.setText("Status: Stopped")
+        self.main_ui.EqualizerWidget.set_timer.stop()
 
     def previous_track(self):
-        pass
+        # self.folder_playlist["music"].previous()
+        self.player.play()
 
     def next_track(self):
-        pass
+        # self.folder_playlist["music"].next()
+        self.player.play()
 
     def open_file(self, action: object):
 
@@ -124,9 +137,10 @@ class MainWindow(QMainWindow):
 
         print(self.media_playlists)
         print(self.folder_playlist)
+        # self.player.setPlaylist(self.folder_playlist["music"])
         self.main_ui.treeView_Playlist.expandAll()
 
-    def cycle_add(self, folder, files, playlist):
+    def files_add(self, folder, files, playlist):
         for file in files:
             self.media_playlists[folder.text()].append(file)
             self.folder_playlist[folder.text()] = playlist
@@ -141,7 +155,7 @@ class MainWindow(QMainWindow):
             folder = index.model().itemFromIndex(index)
         else:
             folder = index.parent().model().itemFromIndex(index.parent())
-        self.cycle_add(folder, files, self.folder_playlist[folder.text()])
+        self.files_add(folder, files, self.folder_playlist[folder.text()])
 
     def add_songs_new_folder(self, files: list):
         folder = files[0].split("/")[-2]
@@ -149,14 +163,14 @@ class MainWindow(QMainWindow):
             new_playlist = QMediaPlaylist(self.player)
             new_folder = QtGui.QStandardItem(folder)
             self.media_playlists[folder] = []
-            self.cycle_add(new_folder, files, new_playlist)
+            self.files_add(new_folder, files, new_playlist)
             self.root_node.appendRow(new_folder)
 
     def add_folder(self, folder: str, files: list):
         new_playlist = QMediaPlaylist(self.player)
         new_folder = QtGui.QStandardItem(folder)
         self.media_playlists[folder] = []
-        self.cycle_add(new_folder, files, new_playlist)
+        self.files_add(new_folder, files, new_playlist)
         self.root_node.appendRow(new_folder)
 
     # def get_track(self, val):

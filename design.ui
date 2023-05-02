@@ -1306,7 +1306,23 @@ QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {
    <addaction name="menuOpen"/>
    <addaction name="menuAbout"/>
   </widget>
-  <widget class="QStatusBar" name="statusbar"/>
+  <widget class="QStatusBar" name="statusBar">
+   <property name="font">
+    <font>
+     <family>MS Shell Dlg 2</family>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QStatusBar QLabel{
+color:white;
+font: 10pt &quot;MS Shell Dlg 2&quot;;
+margin-top: 1px;
+margin-bottom: 3px;
+qproperty-alignment: AlignCenter;
+}</string>
+   </property>
+  </widget>
  </widget>
  <customwidgets>
   <customwidget>
