@@ -1,6 +1,5 @@
 """Menu Style Sheet part for Open Button """
 
-
 menu_style: str = """
 QMenu {
     color: rgb(180, 180, 180);
