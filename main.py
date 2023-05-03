@@ -3,6 +3,7 @@
 import os
 import sys
 import json
+
 from PyQt5 import QtGui
 from PyQt5 import uic
 from PyQt5.QtCore import QUrl
@@ -46,6 +47,7 @@ class MainWindow(QMainWindow):
 
         self.media_playlists = {}
         self.folder_playlist = {}
+        self.current_playlist = None
         self.counter = 1
 
         # Widgets settings
@@ -53,6 +55,8 @@ class MainWindow(QMainWindow):
         self.main_ui.statusBar.addPermanentWidget(self.status_label, 1)
         self.main_ui.statusBar.addPermanentWidget(self.track_label, 2)
         self.status_label.setText("Status: ...")
+        self.track_label.setText("Track: ...")
+        self.player.setVolume(20)
 
         self.tree_model = QtGui.QStandardItemModel()
         self.root_node = self.tree_model.invisibleRootItem()
@@ -71,35 +75,62 @@ class MainWindow(QMainWindow):
         self.main_ui.pushButton_Next_track.clicked.connect(self.next_track)
         self.main_ui.pushButton_Delete_file.clicked.connect(self.delete_file)
         self.menu_open.triggered.connect(self.open_file)
-        self.main_ui.slider_Volume.valueChanged.connect(self.change_volume)
 
-        # self.main_ui.treeView_Playlist.doubleClicked.connect(self.get_track)
+        self.main_ui.slider_Volume.valueChanged.connect(self.change_volume)
+        self.main_ui.slider_Volume.sliderReleased.connect(self.slider_released)
+        self.main_ui.treeView_Playlist.doubleClicked.connect(self.set_track)
+
+        self.player.currentMediaChanged.connect(self.track_changed)
 
         # self.slider_Duration.
 
+    def track_changed(self, media):
+        if not media.isNull():
+            self.track_label.setText(f"Track: {media.canonicalUrl().fileName().rsplit('.')[0]}")
+        else:
+            self.current_playlist.setCurrentIndex(0)
+
+    def set_track(self):
+        index = self.main_ui.treeView_Playlist.selectedIndexes()[0]
+        if index.parent().data() is not None:
+            self.current_playlist = self.folder_playlist[index.parent().data()]
+            self.player.setPlaylist(self.current_playlist)
+            self.current_playlist.setCurrentIndex(index.row())
+            self.player.play()
+            self.status_label.setText("Status: Playing")
+            self.track_label.setText(f"Track: {index.data()}")
+            self.main_ui.EqualizerWidget.set_timer.start()
+
     def play_track(self):
-        self.player.play()
-        self.status_label.setText("Status: Playing")
-        # self.track_label.setText(f"Track: {list(self.media_playlists.keys())[0]}")
-        self.main_ui.EqualizerWidget.set_timer.start()
+        if self.current_playlist is not None:
+            self.player.play()
+            self.status_label.setText("Status: Playing")
+            self.main_ui.EqualizerWidget.set_timer.start()
 
     def pause_track(self):
-        self.player.pause()
-        self.status_label.setText("Status: Paused")
-        self.main_ui.EqualizerWidget.set_timer.stop()
+        if self.current_playlist is not None:
+            self.player.pause()
+            self.status_label.setText("Status: Paused")
+            self.main_ui.EqualizerWidget.set_timer.stop()
 
     def stop_playing(self):
-        self.player.stop()
-        self.status_label.setText("Status: Stopped")
-        self.main_ui.EqualizerWidget.set_timer.stop()
+        if self.current_playlist is not None:
+            self.player.stop()
+            self.status_label.setText("Status: Stopped")
+            self.main_ui.EqualizerWidget.set_timer.stop()
 
     def previous_track(self):
-        # self.folder_playlist["music"].previous()
-        self.player.play()
+        if self.current_playlist is not None:
+            self.current_playlist.previous()
+            self.player.play()
 
     def next_track(self):
-        # self.folder_playlist["music"].next()
-        self.player.play()
+        if self.current_playlist is not None:
+            self.current_playlist.next()
+            self.player.play()
+
+    def delete_file(self):
+        pass
 
     def open_file(self, action: object):
 
@@ -112,7 +143,8 @@ class MainWindow(QMainWindow):
             self.root_node.appendRow(new_folder)
 
         elif action.text() == "Files":
-            files, _ = QFileDialog.getOpenFileNames(self, caption="Open file(-s)...", directory=os.getcwd(),
+            files, _ = QFileDialog.getOpenFileNames(self, caption="Open file(-s)...",
+                                                    directory=os.getcwd(),
                                                     filter=" ".join(file_filter_for_files))
             if files:
                 if self.main_ui.treeView_Playlist.selectedIndexes():
@@ -121,11 +153,11 @@ class MainWindow(QMainWindow):
                     self.add_songs_new_folder(files)
 
         else:
-            dir_path = QFileDialog.getExistingDirectory(self, caption="Open folder...", directory=os.getcwd())
+            dir_path = QFileDialog.getExistingDirectory(self, caption="Open folder...",
+                                                        directory=os.getcwd())
             dir_name = os.path.split(dir_path)[-1]
-            if dir_name in list(self.media_playlists.keys()):
-                pass
-            else:
+
+            if dir_name not in list(self.media_playlists.keys()):
                 files_in_dir = os.listdir(dir_path) if dir_path else []
                 music_files = []
                 for file in files_in_dir:
@@ -173,27 +205,13 @@ class MainWindow(QMainWindow):
         self.files_add(new_folder, files, new_playlist)
         self.root_node.appendRow(new_folder)
 
-    # def get_track(self, val):
-    #     print(val)
-    #     index = self.main_ui.treeView_Playlist.selectedIndexes()[0]
-    #     print(index, index.data())
-    #     # crawler = index.model().itemFromIndex(index)
-    #     # print(crawler)
-    #     print(self.main_ui.treeView_Playlist.selectedIndexes()[0],
-    #           self.main_ui.treeView_Playlist.selectedIndexes()[0].data())
-    #
-    #     for ix in self.main_ui.treeView_Playlist.selectedIndexes():
-    #         print(ix.data())
-    #         # print(ix.row())
-    #
-    #     print("parent", val.parent().data())
-    #     print("child", val.data())
-
-    def delete_file(self):
-        pass
-
     def change_volume(self):
-        print(self.slider_Volume.value())
+        self.player.setVolume(self.main_ui.slider_Volume.value())
+        self.main_ui.label_Volume.setText(f"Volume: {self.main_ui.slider_Volume.value()}%")
+
+    def slider_released(self):
+        self.slider_Volume.setToolTip(f"{self.main_ui.slider_Volume.value()}%")
+        self.main_ui.label_Volume.setText("Volume")
 
     def closeEvent(self, event):
         with open("playlists.json", "w") as save_file:
