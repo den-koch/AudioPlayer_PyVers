@@ -10,7 +10,7 @@ from PyQt5.QtCore import QUrl
 from PyQt5.QtWidgets import QApplication, QMainWindow, QFileDialog, QMenu, QLabel
 from PyQt5.QtMultimedia import QMediaPlayer, QMediaPlaylist, QMediaContent
 
-from modules import *
+from modules import settings
 
 
 # from gui import Ui_MainWindow
@@ -33,7 +33,7 @@ class MainWindow(QMainWindow):
         self.setWindowTitle("Audio Player PyVerse")
         self.setFixedWidth(self.geometry().width())
 
-        # Add Widgets, Variables
+        # Add Widgets and Variables
 
         self.status_label = QLabel()
         self.track_label = QLabel()
@@ -41,16 +41,24 @@ class MainWindow(QMainWindow):
         self.url = QUrl()
 
         self.menu_open = QMenu()
-        self.menu_open.addAction("New Playlist")
-        self.menu_open.addAction("Files")
-        self.menu_open.addAction("Folder")
+        self.tree_model = QtGui.QStandardItemModel()
+        self.root_node = self.tree_model.invisibleRootItem()
 
         self.media_playlists = {}
         self.folder_playlist = {}
         self.current_playlist = None
         self.counter = 1
 
+        self.init_settings()
+        self.init_ui()
+
+    def init_settings(self):
+
         # Widgets settings
+
+        self.menu_open.addAction("New Playlist")
+        self.menu_open.addAction("Files")
+        self.menu_open.addAction("Folder")
 
         self.main_ui.statusBar.addPermanentWidget(self.status_label, 1)
         self.main_ui.statusBar.addPermanentWidget(self.track_label, 2)
@@ -58,13 +66,13 @@ class MainWindow(QMainWindow):
         self.track_label.setText("Track: ...")
         self.player.setVolume(20)
 
-        self.tree_model = QtGui.QStandardItemModel()
-        self.root_node = self.tree_model.invisibleRootItem()
         self.main_ui.treeView_Playlist.setModel(self.tree_model)
         self.main_ui.treeView_Playlist.expandAll()
 
-        self.menu_open.setStyleSheet(menu_style)
+        self.menu_open.setStyleSheet(settings.menu_style)
         self.main_ui.pushButton_Open_file.setMenu(self.menu_open)
+
+    def init_ui(self):
 
         # Define Widgets signals
 
@@ -81,7 +89,6 @@ class MainWindow(QMainWindow):
         self.main_ui.treeView_Playlist.doubleClicked.connect(self.set_track)
 
         self.player.currentMediaChanged.connect(self.track_changed)
-
         # self.slider_Duration.
 
     def track_changed(self, media):
@@ -145,7 +152,7 @@ class MainWindow(QMainWindow):
         elif action.text() == "Files":
             files, _ = QFileDialog.getOpenFileNames(self, caption="Open file(-s)...",
                                                     directory=os.getcwd(),
-                                                    filter=" ".join(file_filter_for_files))
+                                                    filter=" ".join(settings.file_filter_files))
             if files:
                 if self.main_ui.treeView_Playlist.selectedIndexes():
                     self.add_songs(files)
@@ -153,15 +160,14 @@ class MainWindow(QMainWindow):
                     self.add_songs_new_folder(files)
 
         else:
-            dir_path = QFileDialog.getExistingDirectory(self, caption="Open folder...",
-                                                        directory=os.getcwd())
+            dir_path = QFileDialog.getExistingDirectory(self, caption="Open folder...", directory=os.getcwd())
             dir_name = os.path.split(dir_path)[-1]
 
             if dir_name not in list(self.media_playlists.keys()):
                 files_in_dir = os.listdir(dir_path) if dir_path else []
                 music_files = []
                 for file in files_in_dir:
-                    if file.endswith(file_filter_for_dir):
+                    if file.endswith(settings.file_filter_dir):
                         music_files.append(f"{dir_path}/{file}")
 
                 if music_files:
@@ -169,7 +175,6 @@ class MainWindow(QMainWindow):
 
         print(self.media_playlists)
         print(self.folder_playlist)
-        # self.player.setPlaylist(self.folder_playlist["music"])
         self.main_ui.treeView_Playlist.expandAll()
 
     def files_add(self, folder, files, playlist):
