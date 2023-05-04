@@ -13,8 +13,25 @@
     <height>710</height>
    </rect>
   </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>pictures/AVA-mainWindow.png</normaloff>pictures/AVA-mainWindow.png</iconset>
+  </property>
   <property name="styleSheet">
-   <string notr="true">background-color: qlineargradient(spread:pad, x1:0.517, y1:1, x2:0.493, y2:0, stop:0 rgba(49, 49, 49, 207), stop:1 rgba(72, 72, 72, 255));</string>
+   <string notr="true">QWidget {
+background-color: qlineargradient(spread:pad, x1:0.517, y1:1, x2:0.493, y2:0, stop:0 rgba(49, 49, 49, 207), stop:1 rgba(72, 72, 72, 255));}
+
+;QMainWindow, QStatusBar, QMenuBar {
+border-radius:10px;}
+
+
+</string>
+  </property>
+  <property name="iconSize">
+   <size>
+    <width>40</width>
+    <height>40</height>
+   </size>
   </property>
   <widget class="QWidget" name="centralwidget">
    <property name="styleSheet">
@@ -95,7 +112,7 @@ padding: 10px;</string>
               <string/>
              </property>
              <property name="pixmap">
-              <pixmap>pictures/AVA-removebg-preview.png</pixmap>
+              <pixmap>pictures/AVA.png</pixmap>
              </property>
              <property name="scaledContents">
               <bool>true</bool>
@@ -512,9 +529,6 @@ QToolTip { color: rgb(180, 180, 180);
 	background-color: qlineargradient(spread:pad, x1:0.517, y1:1, x2:0.493, y2:0, stop:0 rgba(49, 49, 49, 207), stop:1 rgba(72, 72, 72, 255)); 
 	border: 0px; }
 </string>
-                </property>
-                <property name="text">
-                 <string/>
                 </property>
                 <property name="icon">
                  <iconset>
@@ -1324,14 +1338,19 @@ QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {
    </property>
    <property name="styleSheet">
     <string notr="true">QStatusBar QLabel{
-border: none;
 color:white;
 font: 10pt &quot;MS Shell Dlg 2&quot;;
 margin-top: 1px;
 margin-bottom: 3px;
-margin-right: -3px;
 qproperty-alignment: AlignCenter;
+}
+QStatusBar::item {
+border-right: 2px solid rgb(100, 100, 100);
+margin-right: -2px;
 }</string>
+   </property>
+   <property name="sizeGripEnabled">
+    <bool>false</bool>
    </property>
   </widget>
  </widget>
