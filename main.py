@@ -3,6 +3,8 @@
 import os
 import sys
 import json
+import time
+import pygame
 
 from PyQt5 import QtGui
 from PyQt5 import uic
@@ -42,8 +44,8 @@ class MainWindow(QMainWindow):
         self.tree_model = QtGui.QStandardItemModel()
         self.root_node = self.tree_model.invisibleRootItem()
 
-        self.media_playlists = {}
-        self.folder_playlist = {}
+        self.playlists_media = {}
+        self.playlists_folder = {}
         self.current_playlist = None
         self.counter = 1
 
@@ -86,7 +88,14 @@ class MainWindow(QMainWindow):
         self.main_ui.treeView_Playlist.doubleClicked.connect(self.set_track)
 
         self.player.currentMediaChanged.connect(self.media_changed)
-        # self.slider_Duration.
+        self.player.durationChanged.connect(self.track_duration)
+        self.player.positionChanged.connect(self.track_position)
+
+    def track_position(self, position):
+        self.main_ui.label_Start.setText((time.strftime('%H:%M:%S', time.gmtime(position / 1000))))
+
+    def track_duration(self, duration):
+        self.main_ui.label_End.setText((time.strftime('%H:%M:%S', time.gmtime(duration / 1000))))
 
     def media_changed(self, media):
         if not media.isNull():
@@ -97,7 +106,7 @@ class MainWindow(QMainWindow):
     def set_track(self):
         index = self.main_ui.treeView_Playlist.selectedIndexes()[0]
         if index.parent().data() is not None:
-            self.current_playlist = self.folder_playlist[index.parent().data()]
+            self.current_playlist = self.playlists_folder[index.parent().data()]
             self.player.setPlaylist(self.current_playlist)
             self.current_playlist.setCurrentIndex(index.row())
             self.player.play()
@@ -126,7 +135,7 @@ class MainWindow(QMainWindow):
     def previous_track(self):
         if self.current_playlist is not None:
             if self.current_playlist.currentIndex() == 0:
-                self.current_playlist.setCurrentIndex(self.current_playlist.mediaCount()-1)
+                self.current_playlist.setCurrentIndex(self.current_playlist.mediaCount() - 1)
             else:
                 self.current_playlist.previous()
             self.player.play()
@@ -153,8 +162,8 @@ class MainWindow(QMainWindow):
             new_playlist = QMediaPlaylist(self.player)
             new_folder = QtGui.QStandardItem(f"new playlist {self.counter}")
             self.counter += 1
-            self.media_playlists[new_folder.text()] = []
-            self.folder_playlist[new_folder.text()] = new_playlist
+            self.playlists_media[new_folder.text()] = []
+            self.playlists_folder[new_folder.text()] = new_playlist
             self.root_node.appendRow(new_folder)
 
         elif action.text() == "Files":
@@ -171,7 +180,7 @@ class MainWindow(QMainWindow):
             dir_path = QFileDialog.getExistingDirectory(self, caption="Open folder...", directory=os.getcwd())
             dir_name = os.path.split(dir_path)[-1]
 
-            if dir_name not in list(self.media_playlists.keys()):
+            if dir_name not in list(self.playlists_media.keys()):
                 files_in_dir = os.listdir(dir_path) if dir_path else []
                 music_files = []
                 for file in files_in_dir:
@@ -181,12 +190,14 @@ class MainWindow(QMainWindow):
                 if music_files:
                     self.add_folder(dir_name, music_files)
 
+        print(self.playlists_folder)
+        print(self.playlists_media)
         self.main_ui.treeView_Playlist.expandAll()
 
-    def files_add(self, folder, files, playlist):
+    def media_add(self, folder, files, playlist):
         for file in files:
-            self.media_playlists[folder.text()].append(file)
-            self.folder_playlist[folder.text()] = playlist
+            self.playlists_media[folder.text()].append(file)
+            self.playlists_folder[folder.text()] = playlist
             playlist.addMedia(QMediaContent(QUrl.fromLocalFile(file)))
             new_name = QtGui.QStandardItem(file.split("/")[-1].rsplit('.')[0])
             folder.appendRow(new_name)
@@ -197,27 +208,27 @@ class MainWindow(QMainWindow):
             folder = index.model().itemFromIndex(index)
         else:
             folder = index.parent().model().itemFromIndex(index.parent())
-        self.files_add(folder, files, self.folder_playlist[folder.text()])
+        self.media_add(folder, files, self.playlists_folder[folder.text()])
 
     def add_songs_new_folder(self, files: list):
         folder_name = files[0].split("/")[-2]
-        if folder_name not in list(self.media_playlists.keys()):
+        if folder_name not in list(self.playlists_media.keys()):
             new_playlist = QMediaPlaylist(self.player)
             new_folder = QtGui.QStandardItem(folder_name)
-            self.media_playlists[folder_name] = []
-            self.files_add(new_folder, files, new_playlist)
+            self.playlists_media[folder_name] = []
+            self.media_add(new_folder, files, new_playlist)
             self.root_node.appendRow(new_folder)
 
     def add_folder(self, folder_name: str, files: list):
         new_playlist = QMediaPlaylist(self.player)
         new_folder = QtGui.QStandardItem(folder_name)
-        self.media_playlists[folder_name] = []
-        self.files_add(new_folder, files, new_playlist)
+        self.playlists_media[folder_name] = []
+        self.media_add(new_folder, files, new_playlist)
         self.root_node.appendRow(new_folder)
 
     def closeEvent(self, event):
         with open("playlists.json", "w") as save_file:
-            json.dump(self.media_playlists, save_file, indent=4)
+            json.dump(self.playlists_media, save_file, indent=4)
 
         with open('playlists.json', 'r') as open_file:
             print(json.load(open_file))
