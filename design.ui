@@ -1306,6 +1306,9 @@ color:  rgb(180, 180, 180);
         <property name="selectionBehavior">
          <enum>QAbstractItemView::SelectItems</enum>
         </property>
+        <property name="sortingEnabled">
+         <bool>true</bool>
+        </property>
         <property name="headerHidden">
          <bool>true</bool>
         </property>
@@ -1366,13 +1369,13 @@ margin-right: -2px;
   <customwidget>
    <class>MyEqualizer</class>
    <extends>QWidget</extends>
-   <header>modules/equalizer</header>
+   <header>widgets/equalizer</header>
    <container>1</container>
   </customwidget>
   <customwidget>
    <class>MyTreeView</class>
    <extends>QTreeView</extends>
-   <header>modules/tree_view</header>
+   <header>widgets/tree_view</header>
   </customwidget>
  </customwidgets>
  <resources/>
