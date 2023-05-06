@@ -9,7 +9,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>544</width>
+    <width>554</width>
     <height>710</height>
    </rect>
   </property>
@@ -255,7 +255,7 @@ QToolTip {
               <number>5</number>
              </property>
              <property name="pageStep">
-              <number>10</number>
+              <number>5</number>
              </property>
              <property name="value">
               <number>20</number>
@@ -1162,7 +1162,8 @@ QSlider::add-page:qlineargradient {
 }
 
 QSlider::sub-page:qlineargradient {
-	background: qradialgradient(spread:pad, cx:0.505, cy:0.522818, radius:1.044, fx:0.5, fy:0.523, stop:0.273632 rgba(255, 128, 0, 255), stop:1 rgba(102, 68, 0, 255));;
+	background: qradialgradient(spread:pad, cx:0.505, cy:0.522818, radius:1.044, fx:0.5, fy:0.523, stop:0.273632 rgba(255, 128, 0, 255), stop:1 rgba(102, 68, 0, 255));
+	background-color: qradialgradient(spread:pad, cx:0.505, cy:0.522818, radius:1.044, fx:0.5, fy:0.523, stop:0.134328 rgba(255, 128, 0, 255), stop:0.751244 rgba(102, 68, 0, 255));
 	border-top-right-radius: 0px;
 	border-bottom-right-radius: 0px;
 	border-top-left-radius: 5px;
@@ -1175,7 +1176,10 @@ QSlider::sub-page:qlineargradient {
          <number>100</number>
         </property>
         <property name="singleStep">
-         <number>1</number>
+         <number>10</number>
+        </property>
+        <property name="pageStep">
+         <number>0</number>
         </property>
         <property name="value">
          <number>0</number>
@@ -1278,7 +1282,11 @@ QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical{
 QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {
      background: none;
 	 color: none;
- }</string>
+ }
+
+QLineEdit{
+color:  rgb(180, 180, 180);
+}</string>
         </property>
         <property name="verticalScrollBarPolicy">
          <enum>Qt::ScrollBarAlwaysOn</enum>
@@ -1312,7 +1320,7 @@ QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>544</width>
+     <width>554</width>
      <height>26</height>
     </rect>
    </property>
