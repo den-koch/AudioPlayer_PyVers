@@ -9,12 +9,29 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>544</width>
+    <width>554</width>
     <height>710</height>
    </rect>
   </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>pictures/AVA-mainWindow.png</normaloff>pictures/AVA-mainWindow.png</iconset>
+  </property>
   <property name="styleSheet">
-   <string notr="true">background-color: qlineargradient(spread:pad, x1:0.517, y1:1, x2:0.493, y2:0, stop:0 rgba(49, 49, 49, 207), stop:1 rgba(72, 72, 72, 255));</string>
+   <string notr="true">QWidget {
+background-color: qlineargradient(spread:pad, x1:0.517, y1:1, x2:0.493, y2:0, stop:0 rgba(49, 49, 49, 207), stop:1 rgba(72, 72, 72, 255));}
+
+;QMainWindow, QStatusBar, QMenuBar {
+border-radius:10px;}
+
+
+</string>
+  </property>
+  <property name="iconSize">
+   <size>
+    <width>40</width>
+    <height>40</height>
+   </size>
   </property>
   <widget class="QWidget" name="centralwidget">
    <property name="styleSheet">
@@ -95,7 +112,7 @@ padding: 10px;</string>
               <string/>
              </property>
              <property name="pixmap">
-              <pixmap>pictures/AVA-removebg-preview.png</pixmap>
+              <pixmap>pictures/AVA.png</pixmap>
              </property>
              <property name="scaledContents">
               <bool>true</bool>
@@ -238,7 +255,7 @@ QToolTip {
               <number>5</number>
              </property>
              <property name="pageStep">
-              <number>10</number>
+              <number>5</number>
              </property>
              <property name="value">
               <number>20</number>
@@ -512,9 +529,6 @@ QToolTip { color: rgb(180, 180, 180);
 	background-color: qlineargradient(spread:pad, x1:0.517, y1:1, x2:0.493, y2:0, stop:0 rgba(49, 49, 49, 207), stop:1 rgba(72, 72, 72, 255)); 
 	border: 0px; }
 </string>
-                </property>
-                <property name="text">
-                 <string/>
                 </property>
                 <property name="icon">
                  <iconset>
@@ -875,7 +889,7 @@ QToolTip { color: rgb(180, 180, 180);
            <property name="spacing">
             <number>0</number>
            </property>
-           <item row="0" column="1">
+           <item row="0" column="1" alignment="Qt::AlignHCenter">
             <widget class="QFrame" name="frame">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
@@ -885,13 +899,13 @@ QToolTip { color: rgb(180, 180, 180);
              </property>
              <property name="minimumSize">
               <size>
-               <width>148</width>
+               <width>200</width>
                <height>35</height>
               </size>
              </property>
              <property name="maximumSize">
               <size>
-               <width>148</width>
+               <width>200</width>
                <height>35</height>
               </size>
              </property>
@@ -938,7 +952,7 @@ border-radius: 10%;
                 </property>
                 <property name="maximumSize">
                  <size>
-                  <width>70</width>
+                  <width>100</width>
                   <height>25</height>
                  </size>
                 </property>
@@ -955,7 +969,7 @@ color: rgb(180, 180, 180);
 </string>
                 </property>
                 <property name="text">
-                 <string>00:00</string>
+                 <string>00:00:00</string>
                 </property>
                 <property name="alignment">
                  <set>Qt::AlignCenter</set>
@@ -985,7 +999,7 @@ color: rgb(180, 180, 180);
                 </property>
                 <property name="maximumSize">
                  <size>
-                  <width>70</width>
+                  <width>100</width>
                   <height>25</height>
                  </size>
                 </property>
@@ -1002,7 +1016,7 @@ color: rgb(180, 180, 180);
 </string>
                 </property>
                 <property name="text">
-                 <string>00:00</string>
+                 <string>00:00:00</string>
                 </property>
                 <property name="alignment">
                  <set>Qt::AlignCenter</set>
@@ -1148,7 +1162,8 @@ QSlider::add-page:qlineargradient {
 }
 
 QSlider::sub-page:qlineargradient {
-	background: qradialgradient(spread:pad, cx:0.505, cy:0.522818, radius:1.044, fx:0.5, fy:0.523, stop:0.273632 rgba(255, 128, 0, 255), stop:1 rgba(102, 68, 0, 255));;
+	background: qradialgradient(spread:pad, cx:0.505, cy:0.522818, radius:1.044, fx:0.5, fy:0.523, stop:0.273632 rgba(255, 128, 0, 255), stop:1 rgba(102, 68, 0, 255));
+	background-color: qradialgradient(spread:pad, cx:0.505, cy:0.522818, radius:1.044, fx:0.5, fy:0.523, stop:0.134328 rgba(255, 128, 0, 255), stop:0.751244 rgba(102, 68, 0, 255));
 	border-top-right-radius: 0px;
 	border-bottom-right-radius: 0px;
 	border-top-left-radius: 5px;
@@ -1161,7 +1176,10 @@ QSlider::sub-page:qlineargradient {
          <number>100</number>
         </property>
         <property name="singleStep">
-         <number>1</number>
+         <number>10</number>
+        </property>
+        <property name="pageStep">
+         <number>10</number>
         </property>
         <property name="value">
          <number>0</number>
@@ -1264,7 +1282,11 @@ QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical{
 QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {
      background: none;
 	 color: none;
- }</string>
+ }
+
+QLineEdit{
+color:  rgb(180, 180, 180);
+}</string>
         </property>
         <property name="verticalScrollBarPolicy">
          <enum>Qt::ScrollBarAlwaysOn</enum>
@@ -1284,6 +1306,9 @@ QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {
         <property name="selectionBehavior">
          <enum>QAbstractItemView::SelectItems</enum>
         </property>
+        <property name="sortingEnabled">
+         <bool>true</bool>
+        </property>
         <property name="headerHidden">
          <bool>true</bool>
         </property>
@@ -1298,7 +1323,7 @@ QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>544</width>
+     <width>554</width>
      <height>26</height>
     </rect>
    </property>
@@ -1324,14 +1349,19 @@ QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {
    </property>
    <property name="styleSheet">
     <string notr="true">QStatusBar QLabel{
-border: none;
 color:white;
 font: 10pt &quot;MS Shell Dlg 2&quot;;
 margin-top: 1px;
 margin-bottom: 3px;
-margin-right: -3px;
 qproperty-alignment: AlignCenter;
+}
+QStatusBar::item {
+border-right: 2px solid rgb(100, 100, 100);
+margin-right: -2px;
 }</string>
+   </property>
+   <property name="sizeGripEnabled">
+    <bool>false</bool>
    </property>
   </widget>
  </widget>
@@ -1339,13 +1369,13 @@ qproperty-alignment: AlignCenter;
   <customwidget>
    <class>MyEqualizer</class>
    <extends>QWidget</extends>
-   <header>modules/equalizer</header>
+   <header>widgets/equalizer</header>
    <container>1</container>
   </customwidget>
   <customwidget>
    <class>MyTreeView</class>
    <extends>QTreeView</extends>
-   <header>modules/tree_view</header>
+   <header>widgets/tree_view</header>
   </customwidget>
  </customwidgets>
  <resources/>
