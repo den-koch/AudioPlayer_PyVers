@@ -15,7 +15,6 @@ from PyQt5.QtMultimedia import QMediaPlayer, QMediaPlaylist, QMediaContent
 from widgets import settings
 from widgets.menu import MyMenu
 
-
 # from gui import Ui_MainWindow
 
 
@@ -93,23 +92,25 @@ class MainWindow(QMainWindow):
         index_id = self.main_ui.treeView_Playlist.selectedIndexes()[0].row()
         previous_name = list(self.playlists_folder.keys())[index_id]
 
-        self.playlists_folder[index.data()] = self.playlists_folder.pop(previous_name)
-        self.playlists_media[index.data()] = self.playlists_media.pop(previous_name)
+        if index.data() in self.playlists_folder:
+            self.tree_model.setData(index, previous_name)
 
-        for item in list(self.playlists_folder.keys())[index_id:-1]:
-            self.playlists_folder[item] = self.playlists_folder.pop(item)
-            self.playlists_media[item] = self.playlists_media.pop(item)
+        else:
+            self.playlists_folder[index.data()] = self.playlists_folder.pop(previous_name)
+            self.playlists_media[index.data()] = self.playlists_media.pop(previous_name)
+
+            for item in list(self.playlists_folder.keys())[index_id:-1]:
+                self.playlists_folder[item] = self.playlists_folder.pop(item)
+                self.playlists_media[item] = self.playlists_media.pop(item)
 
     def media_rewind(self):
-        pass
-        # print(self.player.position() / 1000, self.main_ui.slider_Duration.sliderPosition())
+        self.player.setPosition(self.main_ui.slider_Duration.sliderPosition() * 1000)
 
     def track_position(self, position):
         self.main_ui.label_Start.setText((time.strftime('%H:%M:%S', time.gmtime(position / 1000))))
-        self.main_ui.slider_Duration.setSliderPosition(int(position / 1000))
+        self.main_ui.slider_Duration.setValue(int(position / 1000))
 
     def track_duration(self, duration):
-        # print(duration / 1000, int(duration / 1000))
         self.main_ui.label_End.setText((time.strftime('%H:%M:%S', time.gmtime(duration / 1000))))
         self.main_ui.slider_Duration.setMaximum(int(duration / 1000))
 
@@ -177,13 +178,14 @@ class MainWindow(QMainWindow):
     def open_file(self, action: object):
 
         if action.text() == "New Playlist":
-            if f"new playlist {self.counter}" not in self.playlists_folder:
-                new_playlist = QMediaPlaylist(self.player)
-                new_folder = QtGui.QStandardItem(f"new playlist {self.counter}")
-                self.playlists_media[new_folder.text()] = []
-                self.playlists_folder[new_folder.text()] = new_playlist
-                self.root_node.appendRow(new_folder)
-            self.counter += 1
+            while f"new playlist {self.counter}" in self.playlists_folder:
+                self.counter += 1
+            new_playlist = QMediaPlaylist(self.player)
+            new_folder = QtGui.QStandardItem(f"new playlist {self.counter}")
+            self.playlists_media[new_folder.text()] = []
+            self.playlists_folder[new_folder.text()] = new_playlist
+            self.root_node.appendRow(new_folder)
+            self.counter = 1
 
         elif action.text() == "Files":
             files, _ = QFileDialog.getOpenFileNames(self, caption="Open file(-s)...",
