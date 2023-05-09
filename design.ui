@@ -15,7 +15,7 @@
   </property>
   <property name="windowIcon">
    <iconset>
-    <normaloff>pictures/AVA-mainWindow.png</normaloff>pictures/AVA-mainWindow.png</iconset>
+    <normaloff>icons/AVA-mainWindow.png</normaloff>icons/AVA-mainWindow.png</iconset>
   </property>
   <property name="styleSheet">
    <string notr="true">QWidget {
@@ -112,7 +112,7 @@ padding: 10px;</string>
               <string/>
              </property>
              <property name="pixmap">
-              <pixmap>pictures/AVA.png</pixmap>
+              <pixmap>icons/AVA.png</pixmap>
              </property>
              <property name="scaledContents">
               <bool>true</bool>
@@ -382,7 +382,7 @@ QToolTip { color: rgb(180, 180, 180);
                 </property>
                 <property name="icon">
                  <iconset>
-                  <normaloff>pictures/play.png</normaloff>pictures/play.png</iconset>
+                  <normaloff>icons/play.png</normaloff>icons/play.png</iconset>
                 </property>
                 <property name="iconSize">
                  <size>
@@ -458,7 +458,7 @@ QToolTip { color: rgb(180, 180, 180);
                 </property>
                 <property name="icon">
                  <iconset>
-                  <normaloff>pictures/pause.png</normaloff>pictures/pause.png</iconset>
+                  <normaloff>icons/pause.png</normaloff>icons/pause.png</iconset>
                 </property>
                 <property name="iconSize">
                  <size>
@@ -532,7 +532,7 @@ QToolTip { color: rgb(180, 180, 180);
                 </property>
                 <property name="icon">
                  <iconset>
-                  <normaloff>pictures/stop.png</normaloff>pictures/stop.png</iconset>
+                  <normaloff>icons/stop.png</normaloff>icons/stop.png</iconset>
                 </property>
                 <property name="iconSize">
                  <size>
@@ -608,7 +608,7 @@ QToolTip { color: rgb(180, 180, 180);
                 </property>
                 <property name="icon">
                  <iconset>
-                  <normaloff>pictures/prev.png</normaloff>pictures/prev.png</iconset>
+                  <normaloff>icons/prev.png</normaloff>icons/prev.png</iconset>
                 </property>
                 <property name="iconSize">
                  <size>
@@ -684,7 +684,7 @@ QToolTip { color: rgb(180, 180, 180);
                 </property>
                 <property name="icon">
                  <iconset>
-                  <normaloff>pictures/next.png</normaloff>pictures/next.png</iconset>
+                  <normaloff>icons/next.png</normaloff>icons/next.png</iconset>
                 </property>
                 <property name="iconSize">
                  <size>
@@ -761,7 +761,7 @@ QToolTip { color: rgb(180, 180, 180);
                 </property>
                 <property name="icon">
                  <iconset>
-                  <normaloff>pictures/files.png</normaloff>pictures/files.png</iconset>
+                  <normaloff>icons/files.png</normaloff>icons/files.png</iconset>
                 </property>
                 <property name="iconSize">
                  <size>
@@ -831,7 +831,7 @@ QToolTip { color: rgb(180, 180, 180);
                 </property>
                 <property name="icon">
                  <iconset>
-                  <normaloff>pictures/delete.png</normaloff>pictures/delete.png</iconset>
+                  <normaloff>icons/delete.png</normaloff>icons/delete.png</iconset>
                 </property>
                 <property name="iconSize">
                  <size>
@@ -1260,13 +1260,13 @@ QTreeView::item:open:has-children:has-siblings  {
 QTreeView::branch:closed:has-children:!has-siblings,
 QTreeView::branch:closed:has-children:has-siblings {
         border-image: none;
-        image: url(pictures/plus2.0.png);
+        image: url(icons/plus2.0.png);
 }
 
 QTreeView::branch:open:has-children:!has-siblings,
 QTreeView::branch:open:has-children:has-siblings  {
         border-image: none;
-        image: url(pictures/minus3.0.png);
+        image: url(icons/minus3.0.png);
 }
 
 QScrollBar:vertical{
@@ -1285,7 +1285,10 @@ QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {
  }
 
 QLineEdit{
+border: 1px solid rgb(100, 100, 100);
 color:  rgb(180, 180, 180);
+padding-left: 1px;
+padding-bottom: 1px;
 }</string>
         </property>
         <property name="verticalScrollBarPolicy">
