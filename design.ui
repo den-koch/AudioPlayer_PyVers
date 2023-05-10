@@ -10,7 +10,7 @@
     <x>0</x>
     <y>0</y>
     <width>554</width>
-    <height>710</height>
+    <height>711</height>
    </rect>
   </property>
   <property name="windowIcon">
@@ -1327,20 +1327,64 @@ padding-bottom: 1px;
      <x>0</x>
      <y>0</y>
      <width>554</width>
-     <height>26</height>
+     <height>31</height>
     </rect>
    </property>
-   <widget class="QMenu" name="menuOpen">
+   <property name="styleSheet">
+    <string notr="true">
+QMenuBar::item {         
+	margin: 1px;  
+	color: rgb(180, 180, 180); 
+    padding: 2px 10px;
+    border-radius: 5px;
+	border:2px solid rgb(90, 90, 90);
+}
+
+QMenuBar::item:selected {    
+    background-color:rgb(65, 65, 65);
+}
+QMenuBar::item:pressed {
+    background-color: rgb(75, 75, 75);
+}
+QMenu {
+    color: rgb(180, 180, 180);
+    background-color: qlineargradient(spread:pad, x1:0.517, y1:1, x2:0.493, y2:0, 
+    stop:0 rgba(49, 49, 49, 207), stop:1 rgba(72, 72, 72, 255)); 
+    border: 2px solid rgb(100, 100, 100);}
+
+QMenu::item:selected { 
+    background-color: rgb(80, 80, 80);}
+
+QMenu::separator {
+    background: rgb(90, 90, 90);
+	height : 1px;
+}
+;QMenuBar {         
+    background-color:transparent;
+    background-color:rgb(65, 65, 65);
+}</string>
+   </property>
+   <widget class="QMenu" name="menuMain">
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
     <property name="title">
      <string>Main</string>
     </property>
+    <addaction name="actionNew_Playllist"/>
+    <addaction name="actionFiles"/>
+    <addaction name="actionFolder"/>
+    <addaction name="separator"/>
+    <addaction name="actionExit"/>
    </widget>
    <widget class="QMenu" name="menuAbout">
     <property name="title">
      <string>About</string>
     </property>
+    <addaction name="actionHelp"/>
+    <addaction name="actionAbout"/>
    </widget>
-   <addaction name="menuOpen"/>
+   <addaction name="menuMain"/>
    <addaction name="menuAbout"/>
   </widget>
   <widget class="QStatusBar" name="statusBar">
@@ -1367,6 +1411,36 @@ margin-right: -2px;
     <bool>false</bool>
    </property>
   </widget>
+  <action name="actionNew_Playllist">
+   <property name="text">
+    <string>New Playlist</string>
+   </property>
+  </action>
+  <action name="actionFiles">
+   <property name="text">
+    <string>Files</string>
+   </property>
+  </action>
+  <action name="actionFolder">
+   <property name="text">
+    <string>Folder</string>
+   </property>
+  </action>
+  <action name="actionExit">
+   <property name="text">
+    <string>Exit</string>
+   </property>
+  </action>
+  <action name="actionHelp">
+   <property name="text">
+    <string>Help</string>
+   </property>
+  </action>
+  <action name="actionAbout">
+   <property name="text">
+    <string>About</string>
+   </property>
+  </action>
  </widget>
  <customwidgets>
   <customwidget>
