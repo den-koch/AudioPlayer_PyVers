@@ -1,25 +1,35 @@
-""" Main App Class"""
-
+""" Main App File"""
 import os
 import sys
 import json
 import time
-# import pygame
-
 from PyQt5 import QtGui
 from PyQt5 import uic
 from PyQt5.QtCore import QUrl
 from PyQt5.QtWidgets import QApplication, QMainWindow, QFileDialog, QLabel
 from PyQt5.QtMultimedia import QMediaPlayer, QMediaPlaylist, QMediaContent
-
 from widgets import settings
 from widgets.menu import MyMenu
+
 
 # from gui import Ui_MainWindow
 
 
 class MainWindow(QMainWindow):
-    """Class Main window"""
+    """ Main App CLass
+
+    Attributes
+    ----------
+    playlists_folder : dict
+        keys: playlists names
+        values: QMediaPlaylist object
+
+    playlists_media : dict
+        keys: playlists names
+        values: list of QMediaPlaylist media
+
+    current_playlist: object
+        currently playing QMediaPlaylist object """
 
     def __init__(self):
         QMainWindow.__init__(self)
@@ -49,25 +59,20 @@ class MainWindow(QMainWindow):
         self.playlists_media = {}
         self.playlists_folder = {}
         self.current_playlist = None
-        self.cur = None
-        self.counter = 1
 
-        self.init_settings()
-        self.init_ui()
+        self.__init_settings()
+        self.__init_ui()
 
-    def init_settings(self):
-
-        # Widgets settings
-
+    def __init_settings(self):
+        """ Init some widgets settings """
         self.main_ui.pushButton_Open_file.setMenu(self.menu_open)
         self.main_ui.statusBar.addPermanentWidget(self.status_label, 1)
         self.main_ui.statusBar.addPermanentWidget(self.track_label, 2)
         self.main_ui.treeView_Playlist.setModel(self.tree_model)
         self.main_ui.treeView_Playlist.expandAll()
 
-    def init_ui(self):
-        # Define Widgets signals
-
+    def __init_ui(self):
+        """ Connect widgets events """
         self.main_ui.pushButton_Play.clicked.connect(self.play_track)
         self.main_ui.pushButton_Pause.clicked.connect(self.pause_track)
         self.main_ui.pushButton_Stop.clicked.connect(self.stop_playing)
@@ -75,20 +80,22 @@ class MainWindow(QMainWindow):
         self.main_ui.pushButton_Next_track.clicked.connect(self.next_track)
         self.main_ui.pushButton_Delete_file.clicked.connect(self.delete_file)
         self.menu_open.triggered.connect(self.open_file)
+        self.main_ui.actionExit.triggered.connect(self.close)
+        self.main_ui.menuMain.triggered.connect(self.open_file)
+        self.main_ui.actionAbout.triggered.connect(lambda: os.startfile(f"{os.getcwd()}\\README.md"))
+        self.main_ui.actionHelp.triggered.connect(lambda: os.startfile(f"{os.getcwd()}\\info\\HELP.md"))
 
         self.main_ui.treeView_Playlist.doubleClicked.connect(self.set_track)
         self.main_ui.slider_Volume.valueChanged.connect(self.change_volume)
         self.main_ui.slider_Volume.sliderReleased.connect(self.slider_released)
-
         self.main_ui.slider_Duration.actionTriggered.connect(self.media_rewind)
-
         self.player.currentMediaChanged.connect(self.media_changed)
         self.player.durationChanged.connect(self.track_duration)
         self.player.positionChanged.connect(self.track_position)
-
         self.tree_model.dataChanged.connect(self.rename_playlist)
 
     def rename_playlist(self, index):
+        """ Rename the playlist """
         index_id = self.main_ui.treeView_Playlist.selectedIndexes()[0].row()
         previous_name = list(self.playlists_folder.keys())[index_id]
 
@@ -104,23 +111,28 @@ class MainWindow(QMainWindow):
                 self.playlists_media[item] = self.playlists_media.pop(item)
 
     def media_rewind(self):
+        """ Rewind the track """
         self.player.setPosition(self.main_ui.slider_Duration.sliderPosition() * 1000)
 
     def track_position(self, position):
+        """ Show the current track time position """
         self.main_ui.label_Start.setText((time.strftime('%H:%M:%S', time.gmtime(position / 1000))))
         self.main_ui.slider_Duration.setValue(int(position / 1000))
 
     def track_duration(self, duration):
+        """ Set track time duration """
         self.main_ui.label_End.setText((time.strftime('%H:%M:%S', time.gmtime(duration / 1000))))
         self.main_ui.slider_Duration.setMaximum(int(duration / 1000))
 
     def media_changed(self, media):
+        """ Set label track name text """
         if not media.isNull():
             self.track_label.setText(f"Track: {media.canonicalUrl().fileName().rsplit('.')[0]}")
         else:
             self.current_playlist.setCurrentIndex(0)
 
     def set_track(self):
+        """ Set the selected track to playback """
         index = self.main_ui.treeView_Playlist.selectedIndexes()[0]
         if index.parent().data() is not None:
             self.current_playlist = self.playlists_folder[index.parent().data()]
@@ -132,24 +144,28 @@ class MainWindow(QMainWindow):
             self.main_ui.EqualizerWidget.set_timer.start()
 
     def play_track(self):
+        """ Play the track """
         if self.current_playlist is not None:
             self.player.play()
             self.status_label.setText("Status: Playing")
             self.main_ui.EqualizerWidget.set_timer.start()
 
     def pause_track(self):
+        """ Pause the track """
         if self.current_playlist is not None:
             self.player.pause()
             self.status_label.setText("Status: Paused")
             self.main_ui.EqualizerWidget.set_timer.stop()
 
     def stop_playing(self):
+        """ Stop playing music """
         if self.current_playlist is not None:
             self.player.stop()
             self.status_label.setText("Status: Stopped")
             self.main_ui.EqualizerWidget.set_timer.stop()
 
     def previous_track(self):
+        """ Skip to the previous track """
         if self.current_playlist is not None:
             if self.current_playlist.currentIndex() == 0:
                 self.current_playlist.setCurrentIndex(self.current_playlist.mediaCount() - 1)
@@ -158,34 +174,55 @@ class MainWindow(QMainWindow):
             self.player.play()
 
     def next_track(self):
+        """ Skip to the next track """
         if self.current_playlist is not None:
             self.current_playlist.next()
             self.player.play()
 
     def delete_file(self):
-        pass
+        """ Delete selected track/playlist """
+        index = self.main_ui.treeView_Playlist.selectedIndexes()
+        if not index:
+            return
+        playlist_key = index[0].parent().data()
+        if playlist_key is None:
+            if self.current_playlist == self.playlists_folder[index[0].data()]:
+                self.player.stop()
+                self.main_ui.EqualizerWidget.set_timer.stop()
+                self.status_label.setText("Status: ...")
+                self.track_label.setText("Track: ...")
+                self.current_playlist = None
+            del self.playlists_folder[index[0].data()]
+            del self.playlists_media[index[0].data()]
+        else:
+            self.playlists_folder[playlist_key].removeMedia(index[0].row())
+            self.playlists_media[playlist_key].pop(index[0].row())
+        self.tree_model.removeRow(index[0].row(), index[0].parent())
 
     def change_volume(self):
+        """ Change music volume """
         self.player.setVolume(self.main_ui.slider_Volume.value())
         self.main_ui.label_Volume.setText(f"Volume: {self.main_ui.slider_Volume.value()}%")
         if not self.main_ui.slider_Volume.isSliderDown():
             self.slider_released()
 
     def slider_released(self):
+        """Set volume tooltip and text"""
         self.main_ui.slider_Volume.setToolTip(f"{self.main_ui.slider_Volume.value()}%")
         self.main_ui.label_Volume.setText("Volume")
 
-    def open_file(self, action: object):
+    def open_file(self, action):
+        """ Open files from device """
 
         if action.text() == "New Playlist":
-            while f"new playlist {self.counter}" in self.playlists_folder:
-                self.counter += 1
+            counter = 1
+            while f"new playlist {counter}" in self.playlists_folder:
+                counter += 1
             new_playlist = QMediaPlaylist(self.player)
-            new_folder = QtGui.QStandardItem(f"new playlist {self.counter}")
+            new_folder = QtGui.QStandardItem(f"new playlist {counter}")
             self.playlists_media[new_folder.text()] = []
             self.playlists_folder[new_folder.text()] = new_playlist
             self.root_node.appendRow(new_folder)
-            self.counter = 1
 
         elif action.text() == "Files":
             files, _ = QFileDialog.getOpenFileNames(self, caption="Open file(-s)...",
@@ -197,11 +234,12 @@ class MainWindow(QMainWindow):
                 else:
                     self.add_songs_new_folder(files)
 
-        else:
-            dir_path = QFileDialog.getExistingDirectory(self, caption="Open folder...", directory=os.getcwd())
+        elif action.text() == "Folder":
+            dir_path = QFileDialog.getExistingDirectory(self, caption="Open folder...",
+                                                        directory=os.getcwd())
             dir_name = os.path.split(dir_path)[-1]
 
-            if dir_name not in self.playlists_media.keys():
+            if dir_name not in self.playlists_media:
                 files_in_dir = os.listdir(dir_path) if dir_path else []
                 music_files = []
                 for file in files_in_dir:
@@ -211,18 +249,17 @@ class MainWindow(QMainWindow):
                 if music_files:
                     self.add_folder(dir_name, music_files)
 
-        print(self.playlists_folder)
-        print(self.playlists_media)
-
-    def media_add(self, folder, files, playlist):
+    def media_add(self, folder, files: list, playlist):
+        """ Add files to the playlist """
+        self.playlists_folder[folder.text()] = playlist
         for file in files:
             self.playlists_media[folder.text()].append(file)
-            self.playlists_folder[folder.text()] = playlist
             playlist.addMedia(QMediaContent(QUrl.fromLocalFile(file)))
             new_name = QtGui.QStandardItem(file.split("/")[-1].rsplit('.')[0])
             folder.appendRow(new_name)
 
     def add_songs(self, files: list):
+        """ Add multiple files to an existing playlist """
         index = self.main_ui.treeView_Playlist.selectedIndexes()[0]
         if index.parent().data() is None:
             folder = index.model().itemFromIndex(index)
@@ -232,8 +269,9 @@ class MainWindow(QMainWindow):
         self.main_ui.treeView_Playlist.expand(index)
 
     def add_songs_new_folder(self, files: list):
+        """ Add multiple files from a folder to the new playlist """
         folder_name = files[0].split("/")[-2]
-        if folder_name not in self.playlists_media:
+        if folder_name not in self.playlists_folder:
             new_playlist = QMediaPlaylist(self.player)
             new_folder = QtGui.QStandardItem(folder_name)
             self.playlists_media[folder_name] = []
@@ -241,24 +279,33 @@ class MainWindow(QMainWindow):
             self.root_node.appendRow(new_folder)
 
     def add_folder(self, folder_name: str, files: list):
-        new_playlist = QMediaPlaylist(self.player)
-        new_folder = QtGui.QStandardItem(folder_name)
-        self.playlists_media[folder_name] = []
-        self.media_add(new_folder, files, new_playlist)
-        self.root_node.appendRow(new_folder)
+        """ Add a new entire folder to the new playlist """
+        if folder_name not in self.playlists_folder:
+            new_playlist = QMediaPlaylist(self.player)
+            new_folder = QtGui.QStandardItem(folder_name)
+            self.playlists_media[folder_name] = []
+            self.media_add(new_folder, files, new_playlist)
+            self.root_node.appendRow(new_folder)
+
+    def openEvent(self):
+        """Loading the last session data"""
+
+        with open('playlists.json', 'r', encoding='utf8') as open_file:
+            playlists = json.load(open_file)
+
+        for folder, files in playlists.items():
+            self.add_folder(folder, files)
 
     def closeEvent(self, event):
-        with open("playlists.json", "w") as save_file:
+        """Saving the current session data before closing"""
+
+        with open("playlists.json", "w", encoding='utf8') as save_file:
             json.dump(self.playlists_media, save_file, indent=4)
-
-        # os.startfile(f"{os.getcwd()}\\playlists.json")
-
-        with open('playlists.json', 'r') as open_file:
-            print(json.load(open_file))
 
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
     window = MainWindow()
+    window.openEvent()
     window.show()
     sys.exit(app.exec_())
