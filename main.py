@@ -1,4 +1,4 @@
-""" Main App File"""
+""" Main app file """
 import os
 import sys
 import json
@@ -16,7 +16,7 @@ from widgets.menu import MyMenu
 
 
 class MainWindow(QMainWindow):
-    """ Main App CLass
+    """ Main app cLass
 
     Attributes
     ----------
@@ -75,17 +75,17 @@ class MainWindow(QMainWindow):
         """ Connect widgets events """
         self.main_ui.pushButton_Play.clicked.connect(self.play_track)
         self.main_ui.pushButton_Pause.clicked.connect(self.pause_track)
-        self.main_ui.pushButton_Stop.clicked.connect(self.stop_playing)
+        self.main_ui.pushButton_Stop.clicked.connect(self.stop_track)
         self.main_ui.pushButton_Previous_track.clicked.connect(self.previous_track)
         self.main_ui.pushButton_Next_track.clicked.connect(self.next_track)
-        self.main_ui.pushButton_Delete_file.clicked.connect(self.delete_file)
+        self.main_ui.pushButton_Delete_file.clicked.connect(self.delete_track)
         self.menu_open.triggered.connect(self.open_file)
         self.main_ui.actionExit.triggered.connect(self.close)
         self.main_ui.menuMain.triggered.connect(self.open_file)
         self.main_ui.actionAbout.triggered.connect(lambda: os.startfile(f"{os.getcwd()}\\README.md"))
         self.main_ui.actionHelp.triggered.connect(lambda: os.startfile(f"{os.getcwd()}\\info\\HELP.md"))
 
-        self.main_ui.treeView_Playlist.doubleClicked.connect(self.set_track)
+        self.main_ui.treeView_Playlist.doubleClicked.connect(self.select_track)
         self.main_ui.slider_Volume.valueChanged.connect(self.change_volume)
         self.main_ui.slider_Volume.sliderReleased.connect(self.slider_released)
         self.main_ui.slider_Duration.actionTriggered.connect(self.media_rewind)
@@ -131,7 +131,7 @@ class MainWindow(QMainWindow):
         else:
             self.current_playlist.setCurrentIndex(0)
 
-    def set_track(self):
+    def select_track(self):
         """ Set the selected track to playback """
         index = self.main_ui.treeView_Playlist.selectedIndexes()[0]
         if index.parent().data() is not None:
@@ -157,7 +157,7 @@ class MainWindow(QMainWindow):
             self.status_label.setText("Status: Paused")
             self.main_ui.EqualizerWidget.set_timer.stop()
 
-    def stop_playing(self):
+    def stop_track(self):
         """ Stop playing music """
         if self.current_playlist is not None:
             self.player.stop()
@@ -179,7 +179,7 @@ class MainWindow(QMainWindow):
             self.current_playlist.next()
             self.player.play()
 
-    def delete_file(self):
+    def delete_track(self):
         """ Delete selected track/playlist """
         index = self.main_ui.treeView_Playlist.selectedIndexes()
         if not index:
@@ -197,6 +197,7 @@ class MainWindow(QMainWindow):
         else:
             self.playlists_folder[playlist_key].removeMedia(index[0].row())
             self.playlists_media[playlist_key].pop(index[0].row())
+
         self.tree_model.removeRow(index[0].row(), index[0].parent())
 
     def change_volume(self):
@@ -249,8 +250,11 @@ class MainWindow(QMainWindow):
                 if music_files:
                     self.add_folder(dir_name, music_files)
 
-    def media_add(self, folder, files: list, playlist):
-        """ Add files to the playlist """
+        print(self.playlists_folder)
+        print(self.playlists_media)
+
+    def add_media(self, folder, files: list, playlist):
+        """ Add media to the playlist """
         self.playlists_folder[folder.text()] = playlist
         for file in files:
             self.playlists_media[folder.text()].append(file)
@@ -259,32 +263,32 @@ class MainWindow(QMainWindow):
             folder.appendRow(new_name)
 
     def add_songs(self, files: list):
-        """ Add multiple files to an existing playlist """
+        """ Add multiple media to an existing playlist """
         index = self.main_ui.treeView_Playlist.selectedIndexes()[0]
         if index.parent().data() is None:
             folder = index.model().itemFromIndex(index)
         else:
             folder = index.parent().model().itemFromIndex(index.parent())
-        self.media_add(folder, files, self.playlists_folder[folder.text()])
+        self.add_media(folder, files, self.playlists_folder[folder.text()])
         self.main_ui.treeView_Playlist.expand(index)
 
     def add_songs_new_folder(self, files: list):
-        """ Add multiple files from a folder to the new playlist """
+        """ Add multiple media from a folder to the new playlist """
         folder_name = files[0].split("/")[-2]
         if folder_name not in self.playlists_folder:
             new_playlist = QMediaPlaylist(self.player)
             new_folder = QtGui.QStandardItem(folder_name)
             self.playlists_media[folder_name] = []
-            self.media_add(new_folder, files, new_playlist)
+            self.add_media(new_folder, files, new_playlist)
             self.root_node.appendRow(new_folder)
 
     def add_folder(self, folder_name: str, files: list):
-        """ Add a new entire folder to the new playlist """
+        """ Add a new entire folder as the new playlist """
         if folder_name not in self.playlists_folder:
             new_playlist = QMediaPlaylist(self.player)
             new_folder = QtGui.QStandardItem(folder_name)
             self.playlists_media[folder_name] = []
-            self.media_add(new_folder, files, new_playlist)
+            self.add_media(new_folder, files, new_playlist)
             self.root_node.appendRow(new_folder)
 
     def openEvent(self):
