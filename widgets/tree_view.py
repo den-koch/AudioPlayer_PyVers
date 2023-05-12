@@ -1,11 +1,11 @@
-""" Tree view settings"""
+""" Custom tree view widget"""
 from PyQt5 import QtCore
 from PyQt5.QtWidgets import QTreeView
-
 
 class MyTreeView(QTreeView):
 
     def mousePressEvent(self, event):
+        """ Mouse press/click events """
         if event.button() == QtCore.Qt.LeftButton:
             self.clearSelection()
         elif event.button() == QtCore.Qt.RightButton:

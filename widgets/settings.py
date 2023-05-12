@@ -1,4 +1,4 @@
-"""Menu Style Sheet part for Open Button """
+""" File filters """
 
 file_filter_files: tuple = ("*.mp3", "*.mp4", "*.wav", "*.m4a", "*.flac", "*.wma")
 
