@@ -11,15 +11,15 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
-class Ui_MainWindow(object):
-    def setupUi(self, MainWindow):
-        MainWindow.setObjectName("MainWindow")
-        MainWindow.setEnabled(True)
-        MainWindow.resize(554, 711)
+class Ui_AudioPlayer(object):
+    def setupUi(self, AudioPlayer):
+        AudioPlayer.setObjectName("AudioPlayer")
+        AudioPlayer.setEnabled(True)
+        AudioPlayer.resize(554, 711)
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap("icons/AVA-mainWindow.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        MainWindow.setWindowIcon(icon)
-        MainWindow.setStyleSheet("QWidget {\n"
+        AudioPlayer.setWindowIcon(icon)
+        AudioPlayer.setStyleSheet("QWidget {\n"
 "background-color: qlineargradient(spread:pad, x1:0.517, y1:1, x2:0.493, y2:0, stop:0 rgba(49, 49, 49, 207), stop:1 rgba(72, 72, 72, 255));}\n"
 "\n"
 ";QMainWindow, QStatusBar, QMenuBar {\n"
@@ -27,8 +27,8 @@ class Ui_MainWindow(object):
 "\n"
 "\n"
 "")
-        MainWindow.setIconSize(QtCore.QSize(40, 40))
-        self.centralwidget = QtWidgets.QWidget(MainWindow)
+        AudioPlayer.setIconSize(QtCore.QSize(40, 40))
+        self.centralwidget = QtWidgets.QWidget(AudioPlayer)
         self.centralwidget.setStyleSheet("")
         self.centralwidget.setObjectName("centralwidget")
         self.verticalLayout = QtWidgets.QVBoxLayout(self.centralwidget)
@@ -681,8 +681,8 @@ class Ui_MainWindow(object):
         self.treeView_Playlist.setObjectName("treeView_Playlist")
         self.gridLayout_2.addWidget(self.treeView_Playlist, 0, 0, 1, 1)
         self.verticalLayout.addLayout(self.gridLayout_2)
-        MainWindow.setCentralWidget(self.centralwidget)
-        self.menubar = QtWidgets.QMenuBar(MainWindow)
+        AudioPlayer.setCentralWidget(self.centralwidget)
+        self.menubar = QtWidgets.QMenuBar(AudioPlayer)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 554, 31))
         self.menubar.setStyleSheet("\n"
 "QMenuBar::item {         \n"
@@ -722,8 +722,8 @@ class Ui_MainWindow(object):
         self.menuMain.setObjectName("menuMain")
         self.menuAbout = QtWidgets.QMenu(self.menubar)
         self.menuAbout.setObjectName("menuAbout")
-        MainWindow.setMenuBar(self.menubar)
-        self.statusBar = QtWidgets.QStatusBar(MainWindow)
+        AudioPlayer.setMenuBar(self.menubar)
+        self.statusBar = QtWidgets.QStatusBar(AudioPlayer)
         font = QtGui.QFont()
         font.setFamily("MS Shell Dlg 2")
         font.setPointSize(10)
@@ -741,18 +741,18 @@ class Ui_MainWindow(object):
 "}")
         self.statusBar.setSizeGripEnabled(False)
         self.statusBar.setObjectName("statusBar")
-        MainWindow.setStatusBar(self.statusBar)
-        self.actionNew_Playllist = QtWidgets.QAction(MainWindow)
+        AudioPlayer.setStatusBar(self.statusBar)
+        self.actionNew_Playllist = QtWidgets.QAction(AudioPlayer)
         self.actionNew_Playllist.setObjectName("actionNew_Playllist")
-        self.actionFiles = QtWidgets.QAction(MainWindow)
+        self.actionFiles = QtWidgets.QAction(AudioPlayer)
         self.actionFiles.setObjectName("actionFiles")
-        self.actionFolder = QtWidgets.QAction(MainWindow)
+        self.actionFolder = QtWidgets.QAction(AudioPlayer)
         self.actionFolder.setObjectName("actionFolder")
-        self.actionExit = QtWidgets.QAction(MainWindow)
+        self.actionExit = QtWidgets.QAction(AudioPlayer)
         self.actionExit.setObjectName("actionExit")
-        self.actionHelp = QtWidgets.QAction(MainWindow)
+        self.actionHelp = QtWidgets.QAction(AudioPlayer)
         self.actionHelp.setObjectName("actionHelp")
-        self.actionAbout = QtWidgets.QAction(MainWindow)
+        self.actionAbout = QtWidgets.QAction(AudioPlayer)
         self.actionAbout.setObjectName("actionAbout")
         self.menuMain.addAction(self.actionNew_Playllist)
         self.menuMain.addAction(self.actionFiles)
@@ -764,30 +764,30 @@ class Ui_MainWindow(object):
         self.menubar.addAction(self.menuMain.menuAction())
         self.menubar.addAction(self.menuAbout.menuAction())
 
-        self.retranslateUi(MainWindow)
-        QtCore.QMetaObject.connectSlotsByName(MainWindow)
+        self.retranslateUi(AudioPlayer)
+        QtCore.QMetaObject.connectSlotsByName(AudioPlayer)
 
-    def retranslateUi(self, MainWindow):
+    def retranslateUi(self, AudioPlayer):
         _translate = QtCore.QCoreApplication.translate
-        self.label_Volume.setText(_translate("MainWindow", "Volume"))
-        self.slider_Volume.setToolTip(_translate("MainWindow", "20%"))
-        self.pushButton_Play.setToolTip(_translate("MainWindow", "Play"))
-        self.pushButton_Pause.setToolTip(_translate("MainWindow", "Pause"))
-        self.pushButton_Stop.setToolTip(_translate("MainWindow", "Stop"))
-        self.pushButton_Previous_track.setToolTip(_translate("MainWindow", "Previous track"))
-        self.pushButton_Next_track.setToolTip(_translate("MainWindow", "Next track"))
-        self.pushButton_Open_file.setToolTip(_translate("MainWindow", "Add/Open ..."))
-        self.pushButton_Delete_file.setToolTip(_translate("MainWindow", "Delete file(s)"))
-        self.label_Start.setText(_translate("MainWindow", "00:00:00"))
-        self.label_End.setText(_translate("MainWindow", "00:00:00"))
-        self.menuMain.setTitle(_translate("MainWindow", "Main"))
-        self.menuAbout.setTitle(_translate("MainWindow", "About"))
-        self.actionNew_Playllist.setText(_translate("MainWindow", "New Playlist"))
-        self.actionFiles.setText(_translate("MainWindow", "Files"))
-        self.actionFolder.setText(_translate("MainWindow", "Folder"))
-        self.actionExit.setText(_translate("MainWindow", "Exit"))
-        self.actionHelp.setText(_translate("MainWindow", "Help"))
-        self.actionAbout.setText(_translate("MainWindow", "About"))
+        self.label_Volume.setText(_translate("AudioPlayer", "Volume"))
+        self.slider_Volume.setToolTip(_translate("AudioPlayer", "20%"))
+        self.pushButton_Play.setToolTip(_translate("AudioPlayer", "Play"))
+        self.pushButton_Pause.setToolTip(_translate("AudioPlayer", "Pause"))
+        self.pushButton_Stop.setToolTip(_translate("AudioPlayer", "Stop"))
+        self.pushButton_Previous_track.setToolTip(_translate("AudioPlayer", "Previous track"))
+        self.pushButton_Next_track.setToolTip(_translate("AudioPlayer", "Next track"))
+        self.pushButton_Open_file.setToolTip(_translate("AudioPlayer", "Add/Open ..."))
+        self.pushButton_Delete_file.setToolTip(_translate("AudioPlayer", "Delete file(s)"))
+        self.label_Start.setText(_translate("AudioPlayer", "00:00:00"))
+        self.label_End.setText(_translate("AudioPlayer", "00:00:00"))
+        self.menuMain.setTitle(_translate("AudioPlayer", "Main"))
+        self.menuAbout.setTitle(_translate("AudioPlayer", "About"))
+        self.actionNew_Playllist.setText(_translate("AudioPlayer", "New Playlist"))
+        self.actionFiles.setText(_translate("AudioPlayer", "Files"))
+        self.actionFolder.setText(_translate("AudioPlayer", "Folder"))
+        self.actionExit.setText(_translate("AudioPlayer", "Exit"))
+        self.actionHelp.setText(_translate("AudioPlayer", "Help"))
+        self.actionAbout.setText(_translate("AudioPlayer", "About"))
 from widgets.equalizer import MyEqualizer
 from widgets.tree_view import MyTreeView
 
@@ -795,8 +795,8 @@ from widgets.tree_view import MyTreeView
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
-    MainWindow = QtWidgets.QMainWindow()
-    ui = Ui_MainWindow()
-    ui.setupUi(MainWindow)
-    MainWindow.show()
+    AudioPlayer = QtWidgets.QMainWindow()
+    ui = Ui_AudioPlayer()
+    ui.setupUi(AudioPlayer)
+    AudioPlayer.show()
     sys.exit(app.exec_())

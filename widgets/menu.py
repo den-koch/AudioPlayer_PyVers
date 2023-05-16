@@ -1,6 +1,7 @@
 """ Custom menu widget """
 from PyQt5.QtWidgets import QMenu
 
+
 class MyMenu(QMenu):
     def __init__(self):
         super().__init__()

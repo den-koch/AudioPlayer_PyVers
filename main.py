@@ -15,7 +15,7 @@ from widgets.menu import MyMenu
 # from gui import Ui_MainWindow
 
 
-class MainWindow(QMainWindow):
+class AudioPlayer(QMainWindow):
     """ Main app cLass
 
     Attributes
@@ -26,7 +26,7 @@ class MainWindow(QMainWindow):
 
     playlists_media : dict
         keys: playlists names
-        values: list of QMediaPlaylist media
+        values: list of media path
 
     current_playlist: object
         currently playing QMediaPlaylist object """
@@ -309,7 +309,7 @@ class MainWindow(QMainWindow):
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
-    window = MainWindow()
-    window.openEvent()
-    window.show()
+    audio_player = AudioPlayer()
+    audio_player.openEvent()
+    audio_player.show()
     sys.exit(app.exec_())

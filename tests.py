@@ -9,7 +9,7 @@ class MainWindowTest(unittest.TestCase):
     """ Main unit tests class"""
 
     def setUp(self):
-        self.window = main.MainWindow()
+        self.window = main.AudioPlayer()
 
         self.folders = ["music 2.0", "music", "new playlist 1"]
         self.music = ['D:/KPI/4семестр/ІПЗ-курсова/music 2.0/John Denver - Take Me Home, Country Roads.mp3',
