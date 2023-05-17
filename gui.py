@@ -20,13 +20,13 @@ class Ui_AudioPlayer(object):
         icon.addPixmap(QtGui.QPixmap("icons/AVA-mainWindow.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         AudioPlayer.setWindowIcon(icon)
         AudioPlayer.setStyleSheet("QWidget {\n"
-"background-color: qlineargradient(spread:pad, x1:0.517, y1:1, x2:0.493, y2:0, stop:0 rgba(49, 49, 49, 207), stop:1 rgba(72, 72, 72, 255));}\n"
-"\n"
-";QMainWindow, QStatusBar, QMenuBar {\n"
-"border-radius:10px;}\n"
-"\n"
-"\n"
-"")
+                                  "background-color: qlineargradient(spread:pad, x1:0.517, y1:1, x2:0.493, y2:0, stop:0 rgba(49, 49, 49, 207), stop:1 rgba(72, 72, 72, 255));}\n"
+                                  "\n"
+                                  ";QMainWindow, QStatusBar, QMenuBar {\n"
+                                  "border-radius:10px;}\n"
+                                  "\n"
+                                  "\n"
+                                  "")
         AudioPlayer.setIconSize(QtCore.QSize(40, 40))
         self.centralwidget = QtWidgets.QWidget(AudioPlayer)
         self.centralwidget.setStyleSheet("")
@@ -39,10 +39,10 @@ class Ui_AudioPlayer(object):
         self.gridLayout_6.setObjectName("gridLayout_6")
         self.frame1 = QtWidgets.QFrame(self.centralwidget)
         self.frame1.setStyleSheet("QFrame {\n"
-"border-radius:10%;\n"
-"border: 2px solid rgb(100, 100, 100);\n"
-"padding: 2px;\n"
-"}")
+                                  "border-radius:10%;\n"
+                                  "border: 2px solid rgb(100, 100, 100);\n"
+                                  "padding: 2px;\n"
+                                  "}")
         self.frame1.setObjectName("frame1")
         self.gridLayout_1 = QtWidgets.QGridLayout(self.frame1)
         self.gridLayout_1.setContentsMargins(5, 10, 5, 5)
@@ -60,9 +60,9 @@ class Ui_AudioPlayer(object):
         self.label.setSizePolicy(sizePolicy)
         self.label.setMaximumSize(QtCore.QSize(190, 185))
         self.label.setStyleSheet("background-color: 0 ;\n"
-"border: 2px solid rgb(100, 100, 100);\n"
-"border-radius: 5%;\n"
-"padding: 10px;")
+                                 "border: 2px solid rgb(100, 100, 100);\n"
+                                 "border-radius: 5%;\n"
+                                 "padding: 10px;")
         self.label.setText("")
         self.label.setPixmap(QtGui.QPixmap("icons/AVA.png"))
         self.label.setScaledContents(True)
@@ -88,7 +88,7 @@ class Ui_AudioPlayer(object):
         self.label_Volume.setFont(font)
         self.label_Volume.setLayoutDirection(QtCore.Qt.LeftToRight)
         self.label_Volume.setStyleSheet("color: rgb(180, 180, 180); \n"
-"")
+                                        "")
         self.label_Volume.setAlignment(QtCore.Qt.AlignCenter)
         self.label_Volume.setObjectName("label_Volume")
         self.gridLayout_7.addWidget(self.label_Volume, 1, 0, 1, 1, QtCore.Qt.AlignHCenter)
@@ -101,47 +101,47 @@ class Ui_AudioPlayer(object):
         self.slider_Volume.setMinimumSize(QtCore.QSize(180, 0))
         self.slider_Volume.setLayoutDirection(QtCore.Qt.LeftToRight)
         self.slider_Volume.setStyleSheet("QSlider {\n"
-"    background-color: 0;\n"
-"}\n"
-"\n"
-"QSlider::groove:horizontal {\n"
-"    border: 0px solid #999999;\n"
-"    height: 10px;\n"
-"    margin: 1px 0;\n"
-"}\n"
-"\n"
-"QSlider::handle:horizontal {\n"
-"    background: qlineargradient(x1:0, y1:0, x2:1, y2:1, stop:0 #b4b4b4, stop:1 #8f8f8f);\n"
-"    border: 1px solid #5c5c5c;\n"
-"    width: 10px;\n"
-"    margin: -3px 0;\n"
-"    border-radius: 3px;\n"
-"}\n"
-"\n"
-"QSlider::add-page:qlineargradient {\n"
-"    background: white;\n"
-"    border-top-right-radius: 5px;\n"
-"    border-bottom-right-radius: 5px;\n"
-"    border-top-left-radius: 0px;\n"
-"    border-bottom-left-radius: 0px;\n"
-"}\n"
-"\n"
-"QSlider::sub-page:qlineargradient {\n"
-"    background: qradialgradient(spread:pad, cx:0.505, cy:0.522818, radius:1.044, fx:0.5, fy:0.523, stop:0.273632 rgba(255, 128, 0, 255), stop:1 rgba(102, 68, 0, 255));\n"
-"    border-top-right-radius: 0px;\n"
-"    border-bottom-right-radius: 0px;\n"
-"    border-top-left-radius: 5px;\n"
-"    border-bottom-left-radius: 5px;\n"
-"}\n"
-"\n"
-"\n"
-"\n"
-"QToolTip {\n"
-"    font: \"MS Shell Dlg 2\"; \n"
-"    color: rgb(180, 180, 180); \n"
-"    background-color: qlineargradient(spread:pad, x1:0.517, y1:1, x2:0.493, y2:0, stop:0 rgba(49, 49, 49, 207), stop:1 rgba(72, 72, 72, 255)); \n"
-"    border: 0px; }\n"
-"")
+                                         "    background-color: 0;\n"
+                                         "}\n"
+                                         "\n"
+                                         "QSlider::groove:horizontal {\n"
+                                         "    border: 0px solid #999999;\n"
+                                         "    height: 10px;\n"
+                                         "    margin: 1px 0;\n"
+                                         "}\n"
+                                         "\n"
+                                         "QSlider::handle:horizontal {\n"
+                                         "    background: qlineargradient(x1:0, y1:0, x2:1, y2:1, stop:0 #b4b4b4, stop:1 #8f8f8f);\n"
+                                         "    border: 1px solid #5c5c5c;\n"
+                                         "    width: 10px;\n"
+                                         "    margin: -3px 0;\n"
+                                         "    border-radius: 3px;\n"
+                                         "}\n"
+                                         "\n"
+                                         "QSlider::add-page:qlineargradient {\n"
+                                         "    background: white;\n"
+                                         "    border-top-right-radius: 5px;\n"
+                                         "    border-bottom-right-radius: 5px;\n"
+                                         "    border-top-left-radius: 0px;\n"
+                                         "    border-bottom-left-radius: 0px;\n"
+                                         "}\n"
+                                         "\n"
+                                         "QSlider::sub-page:qlineargradient {\n"
+                                         "    background: qradialgradient(spread:pad, cx:0.505, cy:0.522818, radius:1.044, fx:0.5, fy:0.523, stop:0.273632 rgba(255, 128, 0, 255), stop:1 rgba(102, 68, 0, 255));\n"
+                                         "    border-top-right-radius: 0px;\n"
+                                         "    border-bottom-right-radius: 0px;\n"
+                                         "    border-top-left-radius: 5px;\n"
+                                         "    border-bottom-left-radius: 5px;\n"
+                                         "}\n"
+                                         "\n"
+                                         "\n"
+                                         "\n"
+                                         "QToolTip {\n"
+                                         "    font: \"MS Shell Dlg 2\"; \n"
+                                         "    color: rgb(180, 180, 180); \n"
+                                         "    background-color: qlineargradient(spread:pad, x1:0.517, y1:1, x2:0.493, y2:0, stop:0 rgba(49, 49, 49, 207), stop:1 rgba(72, 72, 72, 255)); \n"
+                                         "    border: 0px; }\n"
+                                         "")
         self.slider_Volume.setMaximum(100)
         self.slider_Volume.setSingleStep(5)
         self.slider_Volume.setPageStep(5)
@@ -162,8 +162,8 @@ class Ui_AudioPlayer(object):
         self.frame_but.setSizePolicy(sizePolicy)
         self.frame_but.setMaximumSize(QtCore.QSize(16777215, 50))
         self.frame_but.setStyleSheet("QFrame {\n"
-"border: 1px solid rgb(100, 100, 100);\n"
-"}")
+                                     "border: 1px solid rgb(100, 100, 100);\n"
+                                     "}")
         self.frame_but.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame_but.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_but.setObjectName("frame_but")
@@ -182,25 +182,25 @@ class Ui_AudioPlayer(object):
         self.pushButton_Play.setMinimumSize(QtCore.QSize(36, 36))
         self.pushButton_Play.setMaximumSize(QtCore.QSize(36, 36))
         self.pushButton_Play.setStyleSheet("QPushButton {\n"
-"    border-width: 1px;\n"
-"    border-style:solid;\n"
-"    border-color: rgb(255, 255, 255);\n"
-"    border-radius:18%;\n"
-"\n"
-"    background-color: qradialgradient(spread:pad, cx:0.505, cy:0.522818, radius:1.044, fx:0.5, fy:0.523, stop:0.134328 rgba(255, 128, 0, 255), stop:0.751244 rgba(102, 68, 0, 255));\n"
-"}\n"
-"QPushButton:hover {\n"
-"    background-color:qradialgradient(spread:pad, cx:0.505, cy:0.522818, radius:1.044, fx:0.5, fy:0.523, stop:0.233831 rgba(255, 128, 0, 255), stop:0.751244 rgba(102, 68, 0, 255));\n"
-"    background-color: qradialgradient(spread:pad, cx:0.505, cy:0.522818, radius:1.044, fx:0.5, fy:0.523, stop:0.228856 rgba(255, 145, 34, 255), stop:0.751244 rgba(102, 68, 0, 255));\n"
-"}\n"
-"QPushButton:pressed {\n"
-"    border-color:  rgb(100, 100, 100);\n"
-"    background-color:qradialgradient(spread:pad, cx:0.505, cy:0.522818, radius:1.044, fx:0.5, fy:0.523, stop:0 rgba(255, 128, 0, 255), stop:0.577114 rgba(102, 68, 0, 255));\n"
-"}\n"
-"\n"
-"QToolTip { color: rgb(180, 180, 180); \n"
-"    background-color: qlineargradient(spread:pad, x1:0.517, y1:1, x2:0.493, y2:0, stop:0 rgba(49, 49, 49, 207), stop:1 rgba(72, 72, 72, 255)); \n"
-"    border: 0px; }")
+                                           "    border-width: 1px;\n"
+                                           "    border-style:solid;\n"
+                                           "    border-color: rgb(255, 255, 255);\n"
+                                           "    border-radius:18%;\n"
+                                           "\n"
+                                           "    background-color: qradialgradient(spread:pad, cx:0.505, cy:0.522818, radius:1.044, fx:0.5, fy:0.523, stop:0.134328 rgba(255, 128, 0, 255), stop:0.751244 rgba(102, 68, 0, 255));\n"
+                                           "}\n"
+                                           "QPushButton:hover {\n"
+                                           "    background-color:qradialgradient(spread:pad, cx:0.505, cy:0.522818, radius:1.044, fx:0.5, fy:0.523, stop:0.233831 rgba(255, 128, 0, 255), stop:0.751244 rgba(102, 68, 0, 255));\n"
+                                           "    background-color: qradialgradient(spread:pad, cx:0.505, cy:0.522818, radius:1.044, fx:0.5, fy:0.523, stop:0.228856 rgba(255, 145, 34, 255), stop:0.751244 rgba(102, 68, 0, 255));\n"
+                                           "}\n"
+                                           "QPushButton:pressed {\n"
+                                           "    border-color:  rgb(100, 100, 100);\n"
+                                           "    background-color:qradialgradient(spread:pad, cx:0.505, cy:0.522818, radius:1.044, fx:0.5, fy:0.523, stop:0 rgba(255, 128, 0, 255), stop:0.577114 rgba(102, 68, 0, 255));\n"
+                                           "}\n"
+                                           "\n"
+                                           "QToolTip { color: rgb(180, 180, 180); \n"
+                                           "    background-color: qlineargradient(spread:pad, x1:0.517, y1:1, x2:0.493, y2:0, stop:0 rgba(49, 49, 49, 207), stop:1 rgba(72, 72, 72, 255)); \n"
+                                           "    border: 0px; }")
         self.pushButton_Play.setText("")
         icon1 = QtGui.QIcon()
         icon1.addPixmap(QtGui.QPixmap("icons/play.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
@@ -219,25 +219,25 @@ class Ui_AudioPlayer(object):
         self.pushButton_Pause.setMinimumSize(QtCore.QSize(36, 36))
         self.pushButton_Pause.setMaximumSize(QtCore.QSize(36, 36))
         self.pushButton_Pause.setStyleSheet("QPushButton {\n"
-"    border-width: 1px;\n"
-"    border-style:solid;\n"
-"    border-color: rgb(255, 255, 255);\n"
-"    border-radius:18%;\n"
-"\n"
-"    background-color: qradialgradient(spread:pad, cx:0.505, cy:0.522818, radius:1.044, fx:0.5, fy:0.523, stop:0.134328 rgba(255, 128, 0, 255), stop:0.751244 rgba(102, 68, 0, 255));\n"
-"}\n"
-"QPushButton:hover {\n"
-"    background-color:qradialgradient(spread:pad, cx:0.505, cy:0.522818, radius:1.044, fx:0.5, fy:0.523, stop:0.233831 rgba(255, 128, 0, 255), stop:0.751244 rgba(102, 68, 0, 255));\n"
-"    background-color: qradialgradient(spread:pad, cx:0.505, cy:0.522818, radius:1.044, fx:0.5, fy:0.523, stop:0.228856 rgba(255, 145, 34, 255), stop:0.751244 rgba(102, 68, 0, 255));\n"
-"}\n"
-"QPushButton:pressed {\n"
-"    border-color:  rgb(100, 100, 100);\n"
-"    background-color:qradialgradient(spread:pad, cx:0.505, cy:0.522818, radius:1.044, fx:0.5, fy:0.523, stop:0 rgba(255, 128, 0, 255), stop:0.577114 rgba(102, 68, 0, 255));\n"
-"}\n"
-"\n"
-"QToolTip { color: rgb(180, 180, 180); \n"
-"    background-color: qlineargradient(spread:pad, x1:0.517, y1:1, x2:0.493, y2:0, stop:0 rgba(49, 49, 49, 207), stop:1 rgba(72, 72, 72, 255)); \n"
-"    border: 0px; }")
+                                            "    border-width: 1px;\n"
+                                            "    border-style:solid;\n"
+                                            "    border-color: rgb(255, 255, 255);\n"
+                                            "    border-radius:18%;\n"
+                                            "\n"
+                                            "    background-color: qradialgradient(spread:pad, cx:0.505, cy:0.522818, radius:1.044, fx:0.5, fy:0.523, stop:0.134328 rgba(255, 128, 0, 255), stop:0.751244 rgba(102, 68, 0, 255));\n"
+                                            "}\n"
+                                            "QPushButton:hover {\n"
+                                            "    background-color:qradialgradient(spread:pad, cx:0.505, cy:0.522818, radius:1.044, fx:0.5, fy:0.523, stop:0.233831 rgba(255, 128, 0, 255), stop:0.751244 rgba(102, 68, 0, 255));\n"
+                                            "    background-color: qradialgradient(spread:pad, cx:0.505, cy:0.522818, radius:1.044, fx:0.5, fy:0.523, stop:0.228856 rgba(255, 145, 34, 255), stop:0.751244 rgba(102, 68, 0, 255));\n"
+                                            "}\n"
+                                            "QPushButton:pressed {\n"
+                                            "    border-color:  rgb(100, 100, 100);\n"
+                                            "    background-color:qradialgradient(spread:pad, cx:0.505, cy:0.522818, radius:1.044, fx:0.5, fy:0.523, stop:0 rgba(255, 128, 0, 255), stop:0.577114 rgba(102, 68, 0, 255));\n"
+                                            "}\n"
+                                            "\n"
+                                            "QToolTip { color: rgb(180, 180, 180); \n"
+                                            "    background-color: qlineargradient(spread:pad, x1:0.517, y1:1, x2:0.493, y2:0, stop:0 rgba(49, 49, 49, 207), stop:1 rgba(72, 72, 72, 255)); \n"
+                                            "    border: 0px; }")
         self.pushButton_Pause.setText("")
         icon2 = QtGui.QIcon()
         icon2.addPixmap(QtGui.QPixmap("icons/pause.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
@@ -256,26 +256,26 @@ class Ui_AudioPlayer(object):
         self.pushButton_Stop.setMinimumSize(QtCore.QSize(36, 36))
         self.pushButton_Stop.setMaximumSize(QtCore.QSize(36, 36))
         self.pushButton_Stop.setStyleSheet("QPushButton {\n"
-"    border-width: 1px;\n"
-"    border-style:solid;\n"
-"    border-color: rgb(255, 255, 255);\n"
-"    border-radius:18%;\n"
-"\n"
-"    background-color: qradialgradient(spread:pad, cx:0.505, cy:0.522818, radius:1.044, fx:0.5, fy:0.523, stop:0.134328 rgba(255, 128, 0, 255), stop:0.751244 rgba(102, 68, 0, 255));\n"
-"}\n"
-"QPushButton:hover {\n"
-"    background-color:qradialgradient(spread:pad, cx:0.505, cy:0.522818, radius:1.044, fx:0.5, fy:0.523, stop:0.233831 rgba(255, 128, 0, 255), stop:0.751244 rgba(102, 68, 0, 255));\n"
-"    background-color: qradialgradient(spread:pad, cx:0.505, cy:0.522818, radius:1.044, fx:0.5, fy:0.523, stop:0.228856 rgba(255, 145, 34, 255), stop:0.751244 rgba(102, 68, 0, 255));\n"
-"}\n"
-"QPushButton:pressed {\n"
-"    border-color:  rgb(100, 100, 100);\n"
-"    background-color:qradialgradient(spread:pad, cx:0.505, cy:0.522818, radius:1.044, fx:0.5, fy:0.523, stop:0 rgba(255, 128, 0, 255), stop:0.577114 rgba(102, 68, 0, 255));\n"
-"}\n"
-"\n"
-"QToolTip { color: rgb(180, 180, 180); \n"
-"    background-color: qlineargradient(spread:pad, x1:0.517, y1:1, x2:0.493, y2:0, stop:0 rgba(49, 49, 49, 207), stop:1 rgba(72, 72, 72, 255)); \n"
-"    border: 0px; }\n"
-"")
+                                           "    border-width: 1px;\n"
+                                           "    border-style:solid;\n"
+                                           "    border-color: rgb(255, 255, 255);\n"
+                                           "    border-radius:18%;\n"
+                                           "\n"
+                                           "    background-color: qradialgradient(spread:pad, cx:0.505, cy:0.522818, radius:1.044, fx:0.5, fy:0.523, stop:0.134328 rgba(255, 128, 0, 255), stop:0.751244 rgba(102, 68, 0, 255));\n"
+                                           "}\n"
+                                           "QPushButton:hover {\n"
+                                           "    background-color:qradialgradient(spread:pad, cx:0.505, cy:0.522818, radius:1.044, fx:0.5, fy:0.523, stop:0.233831 rgba(255, 128, 0, 255), stop:0.751244 rgba(102, 68, 0, 255));\n"
+                                           "    background-color: qradialgradient(spread:pad, cx:0.505, cy:0.522818, radius:1.044, fx:0.5, fy:0.523, stop:0.228856 rgba(255, 145, 34, 255), stop:0.751244 rgba(102, 68, 0, 255));\n"
+                                           "}\n"
+                                           "QPushButton:pressed {\n"
+                                           "    border-color:  rgb(100, 100, 100);\n"
+                                           "    background-color:qradialgradient(spread:pad, cx:0.505, cy:0.522818, radius:1.044, fx:0.5, fy:0.523, stop:0 rgba(255, 128, 0, 255), stop:0.577114 rgba(102, 68, 0, 255));\n"
+                                           "}\n"
+                                           "\n"
+                                           "QToolTip { color: rgb(180, 180, 180); \n"
+                                           "    background-color: qlineargradient(spread:pad, x1:0.517, y1:1, x2:0.493, y2:0, stop:0 rgba(49, 49, 49, 207), stop:1 rgba(72, 72, 72, 255)); \n"
+                                           "    border: 0px; }\n"
+                                           "")
         icon3 = QtGui.QIcon()
         icon3.addPixmap(QtGui.QPixmap("icons/stop.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.pushButton_Stop.setIcon(icon3)
@@ -293,25 +293,25 @@ class Ui_AudioPlayer(object):
         self.pushButton_Previous_track.setMinimumSize(QtCore.QSize(36, 36))
         self.pushButton_Previous_track.setMaximumSize(QtCore.QSize(36, 36))
         self.pushButton_Previous_track.setStyleSheet("QPushButton {\n"
-"    border-width: 1px;\n"
-"    border-style:solid;\n"
-"    border-color: rgb(255, 255, 255);\n"
-"    border-radius:18%;\n"
-"\n"
-"    background-color: qradialgradient(spread:pad, cx:0.505, cy:0.522818, radius:1.044, fx:0.5, fy:0.523, stop:0.134328 rgba(255, 128, 0, 255), stop:0.751244 rgba(102, 68, 0, 255));\n"
-"}\n"
-"QPushButton:hover {\n"
-"    background-color:qradialgradient(spread:pad, cx:0.505, cy:0.522818, radius:1.044, fx:0.5, fy:0.523, stop:0.233831 rgba(255, 128, 0, 255), stop:0.751244 rgba(102, 68, 0, 255));\n"
-"    background-color: qradialgradient(spread:pad, cx:0.505, cy:0.522818, radius:1.044, fx:0.5, fy:0.523, stop:0.228856 rgba(255, 145, 34, 255), stop:0.751244 rgba(102, 68, 0, 255));\n"
-"}\n"
-"QPushButton:pressed {\n"
-"    border-color:  rgb(100, 100, 100);\n"
-"    background-color:qradialgradient(spread:pad, cx:0.505, cy:0.522818, radius:1.044, fx:0.5, fy:0.523, stop:0 rgba(255, 128, 0, 255), stop:0.577114 rgba(102, 68, 0, 255));\n"
-"}\n"
-"\n"
-"QToolTip { color: rgb(180, 180, 180); \n"
-"    background-color: qlineargradient(spread:pad, x1:0.517, y1:1, x2:0.493, y2:0, stop:0 rgba(49, 49, 49, 207), stop:1 rgba(72, 72, 72, 255)); \n"
-"    border: 0px; }")
+                                                     "    border-width: 1px;\n"
+                                                     "    border-style:solid;\n"
+                                                     "    border-color: rgb(255, 255, 255);\n"
+                                                     "    border-radius:18%;\n"
+                                                     "\n"
+                                                     "    background-color: qradialgradient(spread:pad, cx:0.505, cy:0.522818, radius:1.044, fx:0.5, fy:0.523, stop:0.134328 rgba(255, 128, 0, 255), stop:0.751244 rgba(102, 68, 0, 255));\n"
+                                                     "}\n"
+                                                     "QPushButton:hover {\n"
+                                                     "    background-color:qradialgradient(spread:pad, cx:0.505, cy:0.522818, radius:1.044, fx:0.5, fy:0.523, stop:0.233831 rgba(255, 128, 0, 255), stop:0.751244 rgba(102, 68, 0, 255));\n"
+                                                     "    background-color: qradialgradient(spread:pad, cx:0.505, cy:0.522818, radius:1.044, fx:0.5, fy:0.523, stop:0.228856 rgba(255, 145, 34, 255), stop:0.751244 rgba(102, 68, 0, 255));\n"
+                                                     "}\n"
+                                                     "QPushButton:pressed {\n"
+                                                     "    border-color:  rgb(100, 100, 100);\n"
+                                                     "    background-color:qradialgradient(spread:pad, cx:0.505, cy:0.522818, radius:1.044, fx:0.5, fy:0.523, stop:0 rgba(255, 128, 0, 255), stop:0.577114 rgba(102, 68, 0, 255));\n"
+                                                     "}\n"
+                                                     "\n"
+                                                     "QToolTip { color: rgb(180, 180, 180); \n"
+                                                     "    background-color: qlineargradient(spread:pad, x1:0.517, y1:1, x2:0.493, y2:0, stop:0 rgba(49, 49, 49, 207), stop:1 rgba(72, 72, 72, 255)); \n"
+                                                     "    border: 0px; }")
         self.pushButton_Previous_track.setText("")
         icon4 = QtGui.QIcon()
         icon4.addPixmap(QtGui.QPixmap("icons/prev.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
@@ -330,25 +330,25 @@ class Ui_AudioPlayer(object):
         self.pushButton_Next_track.setMinimumSize(QtCore.QSize(36, 36))
         self.pushButton_Next_track.setMaximumSize(QtCore.QSize(36, 36))
         self.pushButton_Next_track.setStyleSheet("QPushButton {\n"
-"    border-width: 1px;\n"
-"    border-style:solid;\n"
-"    border-color: rgb(255, 255, 255);\n"
-"    border-radius:18%;\n"
-"\n"
-"    background-color: qradialgradient(spread:pad, cx:0.505, cy:0.522818, radius:1.044, fx:0.5, fy:0.523, stop:0.134328 rgba(255, 128, 0, 255), stop:0.751244 rgba(102, 68, 0, 255));\n"
-"}\n"
-"QPushButton:hover {\n"
-"    background-color:qradialgradient(spread:pad, cx:0.505, cy:0.522818, radius:1.044, fx:0.5, fy:0.523, stop:0.233831 rgba(255, 128, 0, 255), stop:0.751244 rgba(102, 68, 0, 255));\n"
-"    background-color: qradialgradient(spread:pad, cx:0.505, cy:0.522818, radius:1.044, fx:0.5, fy:0.523, stop:0.228856 rgba(255, 145, 34, 255), stop:0.751244 rgba(102, 68, 0, 255));\n"
-"}\n"
-"QPushButton:pressed {\n"
-"    border-color:  rgb(100, 100, 100);\n"
-"    background-color:qradialgradient(spread:pad, cx:0.505, cy:0.522818, radius:1.044, fx:0.5, fy:0.523, stop:0 rgba(255, 128, 0, 255), stop:0.577114 rgba(102, 68, 0, 255));\n"
-"}\n"
-"\n"
-"QToolTip { color: rgb(180, 180, 180); \n"
-"    background-color: qlineargradient(spread:pad, x1:0.517, y1:1, x2:0.493, y2:0, stop:0 rgba(49, 49, 49, 207), stop:1 rgba(72, 72, 72, 255)); \n"
-"    border: 0px; }")
+                                                 "    border-width: 1px;\n"
+                                                 "    border-style:solid;\n"
+                                                 "    border-color: rgb(255, 255, 255);\n"
+                                                 "    border-radius:18%;\n"
+                                                 "\n"
+                                                 "    background-color: qradialgradient(spread:pad, cx:0.505, cy:0.522818, radius:1.044, fx:0.5, fy:0.523, stop:0.134328 rgba(255, 128, 0, 255), stop:0.751244 rgba(102, 68, 0, 255));\n"
+                                                 "}\n"
+                                                 "QPushButton:hover {\n"
+                                                 "    background-color:qradialgradient(spread:pad, cx:0.505, cy:0.522818, radius:1.044, fx:0.5, fy:0.523, stop:0.233831 rgba(255, 128, 0, 255), stop:0.751244 rgba(102, 68, 0, 255));\n"
+                                                 "    background-color: qradialgradient(spread:pad, cx:0.505, cy:0.522818, radius:1.044, fx:0.5, fy:0.523, stop:0.228856 rgba(255, 145, 34, 255), stop:0.751244 rgba(102, 68, 0, 255));\n"
+                                                 "}\n"
+                                                 "QPushButton:pressed {\n"
+                                                 "    border-color:  rgb(100, 100, 100);\n"
+                                                 "    background-color:qradialgradient(spread:pad, cx:0.505, cy:0.522818, radius:1.044, fx:0.5, fy:0.523, stop:0 rgba(255, 128, 0, 255), stop:0.577114 rgba(102, 68, 0, 255));\n"
+                                                 "}\n"
+                                                 "\n"
+                                                 "QToolTip { color: rgb(180, 180, 180); \n"
+                                                 "    background-color: qlineargradient(spread:pad, x1:0.517, y1:1, x2:0.493, y2:0, stop:0 rgba(49, 49, 49, 207), stop:1 rgba(72, 72, 72, 255)); \n"
+                                                 "    border: 0px; }")
         self.pushButton_Next_track.setText("")
         icon5 = QtGui.QIcon()
         icon5.addPixmap(QtGui.QPixmap("icons/next.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
@@ -368,26 +368,26 @@ class Ui_AudioPlayer(object):
         self.pushButton_Open_file.setMaximumSize(QtCore.QSize(36, 36))
         self.pushButton_Open_file.setContextMenuPolicy(QtCore.Qt.ActionsContextMenu)
         self.pushButton_Open_file.setStyleSheet("QPushButton {\n"
-"    border-width: 1px;\n"
-"    border-style:solid;\n"
-"    border-color: rgb(255, 255, 255);\n"
-"    border-radius:18%;\n"
-"    background-color: qradialgradient(spread:pad, cx:0.505, cy:0.522818, radius:1.044, fx:0.5, fy:0.523, stop:0.134328 rgba(255, 128, 0, 255), stop:0.751244 rgba(102, 68, 0, 255));\n"
-"}\n"
-"QPushButton::menu-indicator { image: none; }\n"
-"\n"
-"QPushButton:hover {\n"
-"    background-color:qradialgradient(spread:pad, cx:0.505, cy:0.522818, radius:1.044, fx:0.5, fy:0.523, stop:0.233831 rgba(255, 128, 0, 255), stop:0.751244 rgba(102, 68, 0, 255));\n"
-"    background-color: qradialgradient(spread:pad, cx:0.505, cy:0.522818, radius:1.044, fx:0.5, fy:0.523, stop:0.228856 rgba(255, 145, 34, 255), stop:0.751244 rgba(102, 68, 0, 255));\n"
-"}\n"
-"QPushButton:pressed {\n"
-"    border-color:  rgb(100, 100, 100);\n"
-"    background-color:qradialgradient(spread:pad, cx:0.505, cy:0.522818, radius:1.044, fx:0.5, fy:0.523, stop:0 rgba(255, 128, 0, 255), stop:0.577114 rgba(102, 68, 0, 255));\n"
-"}\n"
-"\n"
-"QToolTip { color: rgb(180, 180, 180); \n"
-"    background-color: qlineargradient(spread:pad, x1:0.517, y1:1, x2:0.493, y2:0, stop:0 rgba(49, 49, 49, 207), stop:1 rgba(72, 72, 72, 255)); \n"
-"    border: 0px; }")
+                                                "    border-width: 1px;\n"
+                                                "    border-style:solid;\n"
+                                                "    border-color: rgb(255, 255, 255);\n"
+                                                "    border-radius:18%;\n"
+                                                "    background-color: qradialgradient(spread:pad, cx:0.505, cy:0.522818, radius:1.044, fx:0.5, fy:0.523, stop:0.134328 rgba(255, 128, 0, 255), stop:0.751244 rgba(102, 68, 0, 255));\n"
+                                                "}\n"
+                                                "QPushButton::menu-indicator { image: none; }\n"
+                                                "\n"
+                                                "QPushButton:hover {\n"
+                                                "    background-color:qradialgradient(spread:pad, cx:0.505, cy:0.522818, radius:1.044, fx:0.5, fy:0.523, stop:0.233831 rgba(255, 128, 0, 255), stop:0.751244 rgba(102, 68, 0, 255));\n"
+                                                "    background-color: qradialgradient(spread:pad, cx:0.505, cy:0.522818, radius:1.044, fx:0.5, fy:0.523, stop:0.228856 rgba(255, 145, 34, 255), stop:0.751244 rgba(102, 68, 0, 255));\n"
+                                                "}\n"
+                                                "QPushButton:pressed {\n"
+                                                "    border-color:  rgb(100, 100, 100);\n"
+                                                "    background-color:qradialgradient(spread:pad, cx:0.505, cy:0.522818, radius:1.044, fx:0.5, fy:0.523, stop:0 rgba(255, 128, 0, 255), stop:0.577114 rgba(102, 68, 0, 255));\n"
+                                                "}\n"
+                                                "\n"
+                                                "QToolTip { color: rgb(180, 180, 180); \n"
+                                                "    background-color: qlineargradient(spread:pad, x1:0.517, y1:1, x2:0.493, y2:0, stop:0 rgba(49, 49, 49, 207), stop:1 rgba(72, 72, 72, 255)); \n"
+                                                "    border: 0px; }")
         icon6 = QtGui.QIcon()
         icon6.addPixmap(QtGui.QPixmap("icons/files.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.pushButton_Open_file.setIcon(icon6)
@@ -400,25 +400,25 @@ class Ui_AudioPlayer(object):
         self.pushButton_Delete_file.setMinimumSize(QtCore.QSize(36, 36))
         self.pushButton_Delete_file.setMaximumSize(QtCore.QSize(36, 36))
         self.pushButton_Delete_file.setStyleSheet("QPushButton {\n"
-"    border-width: 1px;\n"
-"    border-style:solid;\n"
-"    border-color: rgb(255, 255, 255);\n"
-"    border-radius:18%;\n"
-"\n"
-"    background-color: qradialgradient(spread:pad, cx:0.505, cy:0.522818, radius:1.044, fx:0.5, fy:0.523, stop:0.134328 rgba(255, 128, 0, 255), stop:0.751244 rgba(102, 68, 0, 255));\n"
-"}\n"
-"QPushButton:hover {\n"
-"    background-color:qradialgradient(spread:pad, cx:0.505, cy:0.522818, radius:1.044, fx:0.5, fy:0.523, stop:0.233831 rgba(255, 128, 0, 255), stop:0.751244 rgba(102, 68, 0, 255));\n"
-"    background-color: qradialgradient(spread:pad, cx:0.505, cy:0.522818, radius:1.044, fx:0.5, fy:0.523, stop:0.228856 rgba(255, 145, 34, 255), stop:0.751244 rgba(102, 68, 0, 255));\n"
-"}\n"
-"QPushButton:pressed {\n"
-"    border-color:  rgb(100, 100, 100);\n"
-"    background-color:qradialgradient(spread:pad, cx:0.505, cy:0.522818, radius:1.044, fx:0.5, fy:0.523, stop:0 rgba(255, 128, 0, 255), stop:0.577114 rgba(102, 68, 0, 255));\n"
-"}\n"
-"\n"
-"QToolTip { color: rgb(180, 180, 180); \n"
-"    background-color: qlineargradient(spread:pad, x1:0.517, y1:1, x2:0.493, y2:0, stop:0 rgba(49, 49, 49, 207), stop:1 rgba(72, 72, 72, 255)); \n"
-"    border: 0px; }")
+                                                  "    border-width: 1px;\n"
+                                                  "    border-style:solid;\n"
+                                                  "    border-color: rgb(255, 255, 255);\n"
+                                                  "    border-radius:18%;\n"
+                                                  "\n"
+                                                  "    background-color: qradialgradient(spread:pad, cx:0.505, cy:0.522818, radius:1.044, fx:0.5, fy:0.523, stop:0.134328 rgba(255, 128, 0, 255), stop:0.751244 rgba(102, 68, 0, 255));\n"
+                                                  "}\n"
+                                                  "QPushButton:hover {\n"
+                                                  "    background-color:qradialgradient(spread:pad, cx:0.505, cy:0.522818, radius:1.044, fx:0.5, fy:0.523, stop:0.233831 rgba(255, 128, 0, 255), stop:0.751244 rgba(102, 68, 0, 255));\n"
+                                                  "    background-color: qradialgradient(spread:pad, cx:0.505, cy:0.522818, radius:1.044, fx:0.5, fy:0.523, stop:0.228856 rgba(255, 145, 34, 255), stop:0.751244 rgba(102, 68, 0, 255));\n"
+                                                  "}\n"
+                                                  "QPushButton:pressed {\n"
+                                                  "    border-color:  rgb(100, 100, 100);\n"
+                                                  "    background-color:qradialgradient(spread:pad, cx:0.505, cy:0.522818, radius:1.044, fx:0.5, fy:0.523, stop:0 rgba(255, 128, 0, 255), stop:0.577114 rgba(102, 68, 0, 255));\n"
+                                                  "}\n"
+                                                  "\n"
+                                                  "QToolTip { color: rgb(180, 180, 180); \n"
+                                                  "    background-color: qlineargradient(spread:pad, x1:0.517, y1:1, x2:0.493, y2:0, stop:0 rgba(49, 49, 49, 207), stop:1 rgba(72, 72, 72, 255)); \n"
+                                                  "    border: 0px; }")
         self.pushButton_Delete_file.setText("")
         icon7 = QtGui.QIcon()
         icon7.addPixmap(QtGui.QPixmap("icons/delete.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
@@ -446,8 +446,8 @@ class Ui_AudioPlayer(object):
         self.frame.setMinimumSize(QtCore.QSize(200, 35))
         self.frame.setMaximumSize(QtCore.QSize(200, 35))
         self.frame.setStyleSheet("border: 2px solid rgb(100, 100, 100);\n"
-"border-radius: 10%;\n"
-"")
+                                 "border-radius: 10%;\n"
+                                 "")
         self.frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame.setObjectName("frame")
@@ -468,9 +468,9 @@ class Ui_AudioPlayer(object):
         font.setPointSize(12)
         self.label_Start.setFont(font)
         self.label_Start.setStyleSheet("background: none;\n"
-"border:none;\n"
-"color: rgb(180, 180, 180); \n"
-"")
+                                       "border:none;\n"
+                                       "color: rgb(180, 180, 180); \n"
+                                       "")
         self.label_Start.setAlignment(QtCore.Qt.AlignCenter)
         self.label_Start.setObjectName("label_Start")
         self.horizontalLayout_2.addWidget(self.label_Start, 0, QtCore.Qt.AlignVCenter)
@@ -492,12 +492,12 @@ class Ui_AudioPlayer(object):
         font.setPointSize(12)
         self.label_End.setFont(font)
         self.label_End.setStyleSheet("background: none;\n"
-"border:none;\n"
-"color: rgb(180, 180, 180); \n"
-"")
+                                     "border:none;\n"
+                                     "color: rgb(180, 180, 180); \n"
+                                     "")
         self.label_End.setAlignment(QtCore.Qt.AlignCenter)
         self.label_End.setObjectName("label_End")
-        self.horizontalLayout_2.addWidget(self.label_End, 0, QtCore.Qt.AlignHCenter|QtCore.Qt.AlignVCenter)
+        self.horizontalLayout_2.addWidget(self.label_End, 0, QtCore.Qt.AlignHCenter | QtCore.Qt.AlignVCenter)
         self.gridLayout_3.addWidget(self.frame, 0, 1, 1, 1, QtCore.Qt.AlignHCenter)
         self.gridLayout_1.addLayout(self.gridLayout_3, 0, 2, 1, 2)
         self.gridLayout = QtWidgets.QGridLayout()
@@ -513,7 +513,7 @@ class Ui_AudioPlayer(object):
         self.frame_2.setMinimumSize(QtCore.QSize(190, 140))
         self.frame_2.setMaximumSize(QtCore.QSize(190, 140))
         self.frame_2.setStyleSheet("padding:-5px;\n"
-"background-color: rgb(0, 0, 0);")
+                                   "background-color: rgb(0, 0, 0);")
         self.frame_2.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame_2.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_2.setObjectName("frame_2")
@@ -528,7 +528,7 @@ class Ui_AudioPlayer(object):
         self.EqualizerWidget.setSizePolicy(sizePolicy)
         self.EqualizerWidget.setFocusPolicy(QtCore.Qt.ClickFocus)
         self.EqualizerWidget.setStyleSheet("border: 2px solid rgb(100, 100, 100);\n"
-"border-radius: 5%;")
+                                           "border-radius: 5%;")
         self.EqualizerWidget.setObjectName("EqualizerWidget")
         self.verticalLayout_2.addWidget(self.EqualizerWidget)
         self.gridLayout.addWidget(self.frame_2, 0, 1, 1, 1)
@@ -546,41 +546,41 @@ class Ui_AudioPlayer(object):
         sizePolicy.setHeightForWidth(self.slider_Duration.sizePolicy().hasHeightForWidth())
         self.slider_Duration.setSizePolicy(sizePolicy)
         self.slider_Duration.setStyleSheet("QSlider {\n"
-"    background-color: 0;\n"
-"}\n"
-"\n"
-"QSlider::groove:horizontal {\n"
-"    border: 0px solid #999999;\n"
-"    height: 10px;\n"
-"    margin: 1px 0;\n"
-"}\n"
-"\n"
-"QSlider::handle:horizontal {\n"
-"    background: qlineargradient(x1:0, y1:0, x2:1, y2:1, stop:0 #b4b4b4, stop:1 #8f8f8f);\n"
-"    border: 1px solid #5c5c5c;\n"
-"    width: 10px;\n"
-"    margin: -2px 0;\n"
-"    border-radius: 5px;\n"
-"}\n"
-"\n"
-"QSlider::add-page:qlineargradient {\n"
-"    background: white;\n"
-"    border-top-right-radius: 5px;\n"
-"    border-bottom-right-radius: 5px;\n"
-"    border-top-left-radius: 0px;\n"
-"    border-bottom-left-radius: 0px;\n"
-"}\n"
-"\n"
-"QSlider::sub-page:qlineargradient {\n"
-"    background: qradialgradient(spread:pad, cx:0.505, cy:0.522818, radius:1.044, fx:0.5, fy:0.523, stop:0.273632 rgba(255, 128, 0, 255), stop:1 rgba(102, 68, 0, 255));\n"
-"    background-color: qradialgradient(spread:pad, cx:0.505, cy:0.522818, radius:1.044, fx:0.5, fy:0.523, stop:0.134328 rgba(255, 128, 0, 255), stop:0.751244 rgba(102, 68, 0, 255));\n"
-"    border-top-right-radius: 0px;\n"
-"    border-bottom-right-radius: 0px;\n"
-"    border-top-left-radius: 5px;\n"
-"    border-bottom-left-radius: 5px;\n"
-"}\n"
-"\n"
-"")
+                                           "    background-color: 0;\n"
+                                           "}\n"
+                                           "\n"
+                                           "QSlider::groove:horizontal {\n"
+                                           "    border: 0px solid #999999;\n"
+                                           "    height: 10px;\n"
+                                           "    margin: 1px 0;\n"
+                                           "}\n"
+                                           "\n"
+                                           "QSlider::handle:horizontal {\n"
+                                           "    background: qlineargradient(x1:0, y1:0, x2:1, y2:1, stop:0 #b4b4b4, stop:1 #8f8f8f);\n"
+                                           "    border: 1px solid #5c5c5c;\n"
+                                           "    width: 10px;\n"
+                                           "    margin: -2px 0;\n"
+                                           "    border-radius: 5px;\n"
+                                           "}\n"
+                                           "\n"
+                                           "QSlider::add-page:qlineargradient {\n"
+                                           "    background: white;\n"
+                                           "    border-top-right-radius: 5px;\n"
+                                           "    border-bottom-right-radius: 5px;\n"
+                                           "    border-top-left-radius: 0px;\n"
+                                           "    border-bottom-left-radius: 0px;\n"
+                                           "}\n"
+                                           "\n"
+                                           "QSlider::sub-page:qlineargradient {\n"
+                                           "    background: qradialgradient(spread:pad, cx:0.505, cy:0.522818, radius:1.044, fx:0.5, fy:0.523, stop:0.273632 rgba(255, 128, 0, 255), stop:1 rgba(102, 68, 0, 255));\n"
+                                           "    background-color: qradialgradient(spread:pad, cx:0.505, cy:0.522818, radius:1.044, fx:0.5, fy:0.523, stop:0.134328 rgba(255, 128, 0, 255), stop:0.751244 rgba(102, 68, 0, 255));\n"
+                                           "    border-top-right-radius: 0px;\n"
+                                           "    border-bottom-right-radius: 0px;\n"
+                                           "    border-top-left-radius: 5px;\n"
+                                           "    border-bottom-left-radius: 5px;\n"
+                                           "}\n"
+                                           "\n"
+                                           "")
         self.slider_Duration.setMaximum(100)
         self.slider_Duration.setSingleStep(10)
         self.slider_Duration.setPageStep(10)
@@ -604,72 +604,72 @@ class Ui_AudioPlayer(object):
         font.setPointSize(10)
         self.treeView_Playlist.setFont(font)
         self.treeView_Playlist.setStyleSheet("QTreeView{border-radius:10%;\n"
-"    border: 2px solid rgb(100, 100, 100);\n"
-"    color: rgb(180, 180, 180); \n"
-"}\n"
-"QTreeView::item {\n"
-"    padding: 3px;\n"
-"}\n"
-"\n"
-"QTreeView::item:selected {\n"
-"    border: 1px solid rgb(100, 100, 100);\n"
-"    color: rgb(180, 180, 180); \n"
-"    padding:2px;\n"
-"}\n"
-"\n"
-"QTreeView::item:selected:active{\n"
-"    background: rgb(100, 100, 100);\n"
-"    padding:2px;\n"
-"}\n"
-"\n"
-"QTreeView::item:selected:!active {\n"
-"    background: rgb(100, 100, 100);\n"
-"    padding:2px;\n"
-"}\n"
-"\n"
-"QTreeView::item:closed:has-children:!has-siblings,\n"
-"QTreeView::item:closed:has-children:has-siblings,\n"
-"QTreeView::item:open:has-children:!has-siblings,\n"
-"QTreeView::item:open:has-children:has-siblings  {\n"
-"    border:2px solid qradialgradient(spread:pad, cx:0.505, cy:0.522818, radius:1.044, fx:0.5, fy:0.523, stop:0.273632 rgba(255, 128, 0, 255), stop:1 rgba(102, 68, 0, 255));\n"
-"    border-top:none;\n"
-"    border-left:none;\n"
-"    border-right: none;\n"
-"}\n"
-"\n"
-"QTreeView::branch:closed:has-children:!has-siblings,\n"
-"QTreeView::branch:closed:has-children:has-siblings {\n"
-"        border-image: none;\n"
-"        image: url(icons/plus2.0.png);\n"
-"}\n"
-"\n"
-"QTreeView::branch:open:has-children:!has-siblings,\n"
-"QTreeView::branch:open:has-children:has-siblings  {\n"
-"        border-image: none;\n"
-"        image: url(icons/minus3.0.png);\n"
-"}\n"
-"\n"
-"QScrollBar:vertical{\n"
-"background-color: 0;\n"
-"border-top-right-radius:10%;\n"
-"border-bottom-right-radius:10%;\n"
-"margin-left:10px;\n"
-"}\n"
-"QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical{\n"
-"      border: none;\n"
-"      background: none;\n"
-"}\n"
-"QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {\n"
-"     background: none;\n"
-"     color: none;\n"
-" }\n"
-"\n"
-"QLineEdit{\n"
-"border: 1px solid rgb(100, 100, 100);\n"
-"color:  rgb(180, 180, 180);\n"
-"padding-left: 1px;\n"
-"padding-bottom: 1px;\n"
-"}")
+                                             "    border: 2px solid rgb(100, 100, 100);\n"
+                                             "    color: rgb(180, 180, 180); \n"
+                                             "}\n"
+                                             "QTreeView::item {\n"
+                                             "    padding: 3px;\n"
+                                             "}\n"
+                                             "\n"
+                                             "QTreeView::item:selected {\n"
+                                             "    border: 1px solid rgb(100, 100, 100);\n"
+                                             "    color: rgb(180, 180, 180); \n"
+                                             "    padding:2px;\n"
+                                             "}\n"
+                                             "\n"
+                                             "QTreeView::item:selected:active{\n"
+                                             "    background: rgb(100, 100, 100);\n"
+                                             "    padding:2px;\n"
+                                             "}\n"
+                                             "\n"
+                                             "QTreeView::item:selected:!active {\n"
+                                             "    background: rgb(100, 100, 100);\n"
+                                             "    padding:2px;\n"
+                                             "}\n"
+                                             "\n"
+                                             "QTreeView::item:closed:has-children:!has-siblings,\n"
+                                             "QTreeView::item:closed:has-children:has-siblings,\n"
+                                             "QTreeView::item:open:has-children:!has-siblings,\n"
+                                             "QTreeView::item:open:has-children:has-siblings  {\n"
+                                             "    border:2px solid qradialgradient(spread:pad, cx:0.505, cy:0.522818, radius:1.044, fx:0.5, fy:0.523, stop:0.273632 rgba(255, 128, 0, 255), stop:1 rgba(102, 68, 0, 255));\n"
+                                             "    border-top:none;\n"
+                                             "    border-left:none;\n"
+                                             "    border-right: none;\n"
+                                             "}\n"
+                                             "\n"
+                                             "QTreeView::branch:closed:has-children:!has-siblings,\n"
+                                             "QTreeView::branch:closed:has-children:has-siblings {\n"
+                                             "        border-image: none;\n"
+                                             "        image: url(icons/plus2.0.png);\n"
+                                             "}\n"
+                                             "\n"
+                                             "QTreeView::branch:open:has-children:!has-siblings,\n"
+                                             "QTreeView::branch:open:has-children:has-siblings  {\n"
+                                             "        border-image: none;\n"
+                                             "        image: url(icons/minus3.0.png);\n"
+                                             "}\n"
+                                             "\n"
+                                             "QScrollBar:vertical{\n"
+                                             "background-color: 0;\n"
+                                             "border-top-right-radius:10%;\n"
+                                             "border-bottom-right-radius:10%;\n"
+                                             "margin-left:10px;\n"
+                                             "}\n"
+                                             "QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical{\n"
+                                             "      border: none;\n"
+                                             "      background: none;\n"
+                                             "}\n"
+                                             "QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {\n"
+                                             "     background: none;\n"
+                                             "     color: none;\n"
+                                             " }\n"
+                                             "\n"
+                                             "QLineEdit{\n"
+                                             "border: 1px solid rgb(100, 100, 100);\n"
+                                             "color:  rgb(180, 180, 180);\n"
+                                             "padding-left: 1px;\n"
+                                             "padding-bottom: 1px;\n"
+                                             "}")
         self.treeView_Playlist.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOn)
         self.treeView_Playlist.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
         self.treeView_Playlist.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
@@ -685,37 +685,37 @@ class Ui_AudioPlayer(object):
         self.menubar = QtWidgets.QMenuBar(AudioPlayer)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 554, 31))
         self.menubar.setStyleSheet("\n"
-"QMenuBar::item {         \n"
-"    margin: 1px;  \n"
-"    color: rgb(180, 180, 180); \n"
-"    padding: 2px 10px;\n"
-"    border-radius: 5px;\n"
-"    border:2px solid rgb(90, 90, 90);\n"
-"}\n"
-"\n"
-"QMenuBar::item:selected {    \n"
-"    background-color:rgb(65, 65, 65);\n"
-"}\n"
-"QMenuBar::item:pressed {\n"
-"    background-color: rgb(75, 75, 75);\n"
-"}\n"
-"QMenu {\n"
-"    color: rgb(180, 180, 180);\n"
-"    background-color: qlineargradient(spread:pad, x1:0.517, y1:1, x2:0.493, y2:0, \n"
-"    stop:0 rgba(49, 49, 49, 207), stop:1 rgba(72, 72, 72, 255)); \n"
-"    border: 2px solid rgb(100, 100, 100);}\n"
-"\n"
-"QMenu::item:selected { \n"
-"    background-color: rgb(80, 80, 80);}\n"
-"\n"
-"QMenu::separator {\n"
-"    background: rgb(90, 90, 90);\n"
-"    height : 1px;\n"
-"}\n"
-";QMenuBar {         \n"
-"    background-color:transparent;\n"
-"    background-color:rgb(65, 65, 65);\n"
-"}")
+                                   "QMenuBar::item {         \n"
+                                   "    margin: 1px;  \n"
+                                   "    color: rgb(180, 180, 180); \n"
+                                   "    padding: 2px 10px;\n"
+                                   "    border-radius: 5px;\n"
+                                   "    border:2px solid rgb(90, 90, 90);\n"
+                                   "}\n"
+                                   "\n"
+                                   "QMenuBar::item:selected {    \n"
+                                   "    background-color:rgb(65, 65, 65);\n"
+                                   "}\n"
+                                   "QMenuBar::item:pressed {\n"
+                                   "    background-color: rgb(75, 75, 75);\n"
+                                   "}\n"
+                                   "QMenu {\n"
+                                   "    color: rgb(180, 180, 180);\n"
+                                   "    background-color: qlineargradient(spread:pad, x1:0.517, y1:1, x2:0.493, y2:0, \n"
+                                   "    stop:0 rgba(49, 49, 49, 207), stop:1 rgba(72, 72, 72, 255)); \n"
+                                   "    border: 2px solid rgb(100, 100, 100);}\n"
+                                   "\n"
+                                   "QMenu::item:selected { \n"
+                                   "    background-color: rgb(80, 80, 80);}\n"
+                                   "\n"
+                                   "QMenu::separator {\n"
+                                   "    background: rgb(90, 90, 90);\n"
+                                   "    height : 1px;\n"
+                                   "}\n"
+                                   ";QMenuBar {         \n"
+                                   "    background-color:transparent;\n"
+                                   "    background-color:rgb(65, 65, 65);\n"
+                                   "}")
         self.menubar.setObjectName("menubar")
         self.menuMain = QtWidgets.QMenu(self.menubar)
         self.menuMain.setStyleSheet("")
@@ -729,16 +729,16 @@ class Ui_AudioPlayer(object):
         font.setPointSize(10)
         self.statusBar.setFont(font)
         self.statusBar.setStyleSheet("QStatusBar QLabel{\n"
-"color:white;\n"
-"font: 10pt \"MS Shell Dlg 2\";\n"
-"margin-top: 1px;\n"
-"margin-bottom: 3px;\n"
-"qproperty-alignment: AlignCenter;\n"
-"}\n"
-"QStatusBar::item {\n"
-"border-right: 2px solid rgb(100, 100, 100);\n"
-"margin-right: -2px;\n"
-"}")
+                                     "color:white;\n"
+                                     "font: 10pt \"MS Shell Dlg 2\";\n"
+                                     "margin-top: 1px;\n"
+                                     "margin-bottom: 3px;\n"
+                                     "qproperty-alignment: AlignCenter;\n"
+                                     "}\n"
+                                     "QStatusBar::item {\n"
+                                     "border-right: 2px solid rgb(100, 100, 100);\n"
+                                     "margin-right: -2px;\n"
+                                     "}")
         self.statusBar.setSizeGripEnabled(False)
         self.statusBar.setObjectName("statusBar")
         AudioPlayer.setStatusBar(self.statusBar)
@@ -788,12 +788,14 @@ class Ui_AudioPlayer(object):
         self.actionExit.setText(_translate("AudioPlayer", "Exit"))
         self.actionHelp.setText(_translate("AudioPlayer", "Help"))
         self.actionAbout.setText(_translate("AudioPlayer", "About"))
+
+
 from widgets.equalizer import MyEqualizer
 from widgets.tree_view import MyTreeView
 
-
 if __name__ == "__main__":
     import sys
+
     app = QtWidgets.QApplication(sys.argv)
     AudioPlayer = QtWidgets.QMainWindow()
     ui = Ui_AudioPlayer()
