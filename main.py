@@ -11,7 +11,6 @@ from PyQt5.QtMultimedia import QMediaPlayer, QMediaPlaylist, QMediaContent
 from widgets import settings
 from widgets.menu import MyMenu
 
-
 from gui import Ui_AudioPlayer
 
 
@@ -293,12 +292,17 @@ class AudioPlayer(QMainWindow):
 
     def openEvent(self):
         """Loading the last session data"""
+        try:
+            with open("playlists.json", 'r', encoding='utf8') as open_file:
+                playlists = json.load(open_file)
 
-        with open("playlists.json", 'r', encoding='utf8') as open_file:
-            playlists = json.load(open_file)
+            for folder, files in playlists.items():
+                self.add_folder(folder, files)
 
-        for folder, files in playlists.items():
-            self.add_folder(folder, files)
+        except FileNotFoundError:
+            with open("playlists.json", "w", encoding='utf8') as save_file:
+                json.dump({}, save_file)
+
 
     def closeEvent(self, event):
         """Saving the current session data before closing"""
