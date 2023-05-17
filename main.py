@@ -12,7 +12,7 @@ from widgets import settings
 from widgets.menu import MyMenu
 
 
-# from gui import Ui_MainWindow
+from gui import Ui_AudioPlayer
 
 
 class AudioPlayer(QMainWindow):
@@ -36,9 +36,9 @@ class AudioPlayer(QMainWindow):
 
         # Load UI file
 
-        self.main_ui = uic.loadUi("design.ui", self)
-        # self.main_ui = Ui_MainWindow()
-        # self.main_ui.setupUi(self)
+        # self.main_ui = uic.loadUi("design.ui", self)
+        self.main_ui = Ui_AudioPlayer()
+        self.main_ui.setupUi(self)
 
         # Main Window settings
 
@@ -294,7 +294,7 @@ class AudioPlayer(QMainWindow):
     def openEvent(self):
         """Loading the last session data"""
 
-        with open('playlists.json', 'r', encoding='utf8') as open_file:
+        with open("playlists.json", 'r', encoding='utf8') as open_file:
             playlists = json.load(open_file)
 
         for folder, files in playlists.items():
